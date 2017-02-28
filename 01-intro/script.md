@@ -16,7 +16,7 @@ Within our index.html file we simply load the webpack generated bundle file.
 (Show `index.ts`)
 Note that this application is completely framework free at the moment. We can quite easily write to the document body using Just plain JavaScript
 
-```
+```js
 document.body.innerHtml = `
   <div>
     Hello world
@@ -26,13 +26,13 @@ document.body.innerHtml = `
 
 Now to style this simple div using CSS classes lets use TypeStyle. You simply install it from `npm`
 
-```
+```sh
 npm install typestyle
 ```
 
 And then you can bring in the `style` function from typestyle. This function simply takes a style object
 
-```
+```js
 style({
   color: 'darkorange'
 });
@@ -40,7 +40,7 @@ style({
 
 And returns a generated CSS class name:
 
-```
+```js
 const className = style({
   color: 'darkorange'
 });
@@ -49,7 +49,7 @@ const className = style({
 * Notice that since TypeStyle is written in TypeScript you get autocomplete for free.
 * It also you a level of protection against typos e.g. 
 
-```
+```js
 const className = style({
   colour: 'darkorange' // Error : typo
 });
