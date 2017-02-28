@@ -46,6 +46,20 @@ const className = style({
 });
 ```
 
+You can apply this CSS class to the div quite easily: 
+
+```js
+const className = style({
+  color: 'darkorange'
+});
+
+document.body.innerHtml = `
+  <div class="${className}">
+    Hello world
+  </div>
+`
+```
+
 * Notice that since TypeStyle is written in TypeScript you get autocomplete for free.
 * It also you a level of protection against typos e.g. 
 
