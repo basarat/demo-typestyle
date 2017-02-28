@@ -60,13 +60,30 @@ document.body.innerHtml = `
 `
 ```
 
-* Notice that since TypeStyle is written in TypeScript you get autocomplete for free.
-* It also you a level of protection against typos e.g. 
+Note that TypeStyle is completely framework agnostic. It is a simple (CSS Style object -> CSS class name) framework. 
 
+It is designed to have a zero config setup. Here the generated CSS is actually getting written a `style` tag that is managed by TypeStyle. *inspect the page and show the style tag in the head*. Because it generates an actual stylesheet, this means that it has the full power of CSS at its disposal.
+
+
+* Notice that since TypeStyle is written in TypeScript you get autocomplete for free.
 ```js
 const className = style({
-  colour: 'darkorange' // Error : typo
+  color: 'darkorange',
+  position: 'relative',
 });
 ```
 
-This is because TypeStyle is completely framework agnostic. It is a simple (CSS objects -> )
+* It also you a level of quick compile time protection against typos e.g. 
+
+```js
+const className = style({
+  color: 'darkorange',
+  position: 'reletive', // Error : typo
+});
+```
+```js
+const className = style({
+  colour: 'darkorange', // Error : typo
+  position: 'relative',
+});
+```
