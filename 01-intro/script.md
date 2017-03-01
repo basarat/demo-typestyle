@@ -17,7 +17,7 @@ Within our index.html file we simply load the webpack generated bundle file.
 Note that this application is completely framework free at the moment. We can quite easily write to the document body using Just plain JavaScript
 
 ```js
-document.body.innerHtml = `
+document.getElementById('root').innerHtml = `
   <div>
     Hello world
   </div>
@@ -86,4 +86,16 @@ const className = style({
   colour: 'darkorange', // Error : typo
   position: 'relative',
 });
+```
+
+To demonstrate TypeStyle's framework agnostic nature, lets integrate TypeStyle into a React Application. I'll simply go ahead in install react react-dom and its types 
+
+```
+npm install react react-dom @types/react @types/react-dom -D
+```
+
+Now within our file. I'll simply use ReactDom to render a similar div to the document body. It still uses the same className that TypeStyle generated for us with vanilla JavaScript.
+
+```
+todo
 ```
