@@ -17,3 +17,5 @@ ReactDOM.render(
   </div>
 , document.getElementById('root'));
 ```
+
+TypeStyle provide a `media` function to make it easy to write media queries.
