@@ -33,6 +33,7 @@ npm install typestyle
 And then you can bring in the `style` function from typestyle. This function simply takes a style object
 
 ```js
+import { style } from "typestyle";
 style({
   color: 'darkorange'
 });
@@ -41,6 +42,7 @@ style({
 And returns a generated CSS class name:
 
 ```js
+import { style } from "typestyle";
 const className = style({
   color: 'darkorange'
 });
@@ -49,6 +51,7 @@ const className = style({
 You can apply this CSS class to the div quite easily: 
 
 ```js
+import { style } from "typestyle";
 const className = style({
   color: 'darkorange'
 });
@@ -99,6 +102,7 @@ Now within our file, we will bring in react and react-dom. I'll simply use React
 ```js
 import * as React from "react";
 import * as ReactDOM from "react-dom"; 
+import { style } from "typestyle";
 
 const className = style({
   color: 'darkorange',
@@ -112,12 +116,12 @@ ReactDOM.render(
 , document.getElementById('root'));
 ```
 
-It can use the TypeStyel generated className just as easily as we did with framework free JS. 
-
+It can use the TypeStyle generated className just as easily as we did with framework free JS. 
 
 ```js
 import * as React from "react";
 import * as ReactDOM from "react-dom"; 
+import { style } from "typestyle";
 
 const className = style({
   color: 'darkorange',
