@@ -62,4 +62,25 @@ const className = style(
 
 (show the responsivenss of the layout)
 
+You can even write non standard media queries if you wanted using TypeStyle by simply using the `$nest` operator of the style object.
+
+```js
+const className = style(
+  { 
+    color: '#333',
+    transition: 'font-size .2s',
+  },
+  media({minWidth:300, maxWidth: 600}, {fontSize: '30px'}),
+  media({minWidth:601}, {fontSize: '50px'}),
+  {
+    $nest: {
+      /** iPhone */
+      '@media screen and (-webkit-min-device-pixel-ratio: 2)': {
+        color: 'red'
+      }
+    }
+  }
+);
+```
+
 Note that you have true encapsulation of the media query (show the cursor at the media) under a className (show the cursor at className) something that is lacking in plain CSS.
