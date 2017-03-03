@@ -11,10 +11,10 @@ Here we have a simple application setup using webpack 2 with a barebones TypeScr
 In our package.json we have a `start` target that runs webpack dev server serving up our `public` folder. 
 
 (Show `index.html`) 
-Within our index.html file we simply load the webpack generated bundle file.
+Within our index.html file we have a simple div with id root and then we load the webpack generated bundle file.
 
 (Show `index.ts`)
-Note that this application is completely framework free at the moment. We can quite easily write to the document body using Just plain JavaScript
+Note that this application is completely framework free at the moment. We can quite easily write to the root div using just plain JavaScript
 
 ```js
 document.getElementById('root').innerHtml = `
@@ -53,7 +53,7 @@ const className = style({
   color: 'darkorange'
 });
 
-document.body.innerHtml = `
+document.getElementById('root').innerHtml = `
   <div class="${className}">
     Hello world
   </div>
@@ -69,7 +69,7 @@ It is designed to have a zero config setup. Here the generated CSS is actually g
 ```js
 const className = style({
   color: 'darkorange',
-  position: 'relative',
+  position: 'relative', // Show autocomplete 
 });
 ```
 
@@ -78,24 +78,55 @@ const className = style({
 ```js
 const className = style({
   color: 'darkorange',
-  position: 'reletive', // Error : typo
+  position: 'reletive', // Show Error : typo
 });
 ```
 ```js
 const className = style({
-  colour: 'darkorange', // Error : typo
+  colour: 'darkorange', // Show Error : typo
   position: 'relative',
 });
 ```
 
-To demonstrate TypeStyle's framework agnostic nature, lets integrate TypeStyle into a React Application. I'll simply go ahead in install react react-dom and its types 
+To demonstrate TypeStyle's framework agnostic nature, lets integrate TypeStyle into a React Application. I'll simply go ahead in install react react-dom and its types.
 
 ```
 npm install react react-dom @types/react @types/react-dom -D
 ```
 
-Now within our file. I'll simply use ReactDom to render a similar div to the document body. It still uses the same className that TypeStyle generated for us with vanilla JavaScript.
+Now within our file, we will bring in react and react-dom. I'll simply use ReactDom to render a simple div.
 
+```js
+import * as React from "react";
+import * as ReactDOM from "react-dom"; 
+
+const className = style({
+  color: 'darkorange',
+  position: 'relative',
+});
+
+ReactDOM.render(
+  <div>
+    Hello world
+  </div>
+, document.getElementById('root'));
 ```
-todo
+
+It can use the TypeStyel generated className just as easily as we did with framework free JS. 
+
+
+```js
+import * as React from "react";
+import * as ReactDOM from "react-dom"; 
+
+const className = style({
+  color: 'darkorange',
+  position: 'relative',
+});
+
+ReactDOM.render(
+  <div className={className}>
+    Hello world
+  </div>
+, document.getElementById('root'));
 ```
