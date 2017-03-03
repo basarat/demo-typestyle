@@ -62,6 +62,4 @@ const className = style(
 
 (show the responsivenss of the layout)
 
-
-
 Note that you have true encapsulation of the media query (show the cursor at the media) under a className (show the cursor at className) something that is lacking in plain CSS.
