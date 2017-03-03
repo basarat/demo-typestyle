@@ -1,5 +1,5 @@
 # Add TypeStyle responsive styles using Media Queries
-> Media queries are very important for designs that you want to work on both mobile and desktop browers. TypeStyle gives it special attention to make it easy to write then in CSS in JS
+> Media queries are very important for designs that you want to work on both mobile and desktop browers. TypeStyle gives it special attention to make it easy to write them in CSS in JS. We show the `media` function. We also demonstrate how you can add non standard media queries that you want.
 
 We have simple React Application that renders a div with a generated className to a root div in our `index.html`
 
@@ -9,7 +9,9 @@ import * as React from "react";
 import * as ReactDOM from "react-dom"; 
 import { style } from "typestyle";
 
-const className = style({});
+const className = style(
+  { color : '#333' },
+);
 
 ReactDOM.render(
   <div className={className}>
@@ -18,4 +20,48 @@ ReactDOM.render(
 , document.getElementById('root'));
 ```
 
-TypeStyle provide a `media` function to make it easy to write media queries.
+TypeStyle provides a `media` function to make it easy to write media queries which we can import from the main module
+
+```js
+import { style, media } from "typestyle";
+```
+
+You can use the media function to specify CSS breakpoints. e.g. we can change the fontSize when the width becomes greater than 300px
+
+```js
+const className = style(
+  { color : '#333' },
+  media({minWidth:300}, {fontSize: '30px'}) 
+);
+``` 
+
+To make the UI feel more fluent we can easily add a CSS transition on fontSize e.g. here I am going to apply a transition of `.2s` on fontSize
+
+```js
+const className = style(
+  { 
+    color: '#333',
+    transition: 'font-size .2s',
+  },
+  media({minWidth:300}, {fontSize: '30px'}) 
+);
+```
+
+You can add as many media queries as you want. This is because the media function just returns a new NestedCSS object. Here we add another distinct media query for when the width is great than 600.
+
+```js
+const className = style(
+  { 
+    color: '#333',
+    transition: 'font-size .2s',
+  },
+  media({minWidth:300, maxWidth: 600}, {fontSize: '30px'}),
+  media({minWidth:601}, {fontSize: '50px'}) 
+);
+```
+
+(show the responsivenss of the layout)
+
+
+
+Note that you have true encapsulation of the media query (show the cursor at the media) under a className (show the cursor at className) something that is lacking in plain CSS.
