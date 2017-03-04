@@ -60,3 +60,40 @@ const className = style(
   },
 );
 ```
+
+Another kind of fallback needed in CSS is vendor prefixing. TypeStyle allows you to provide objects with a `-` in them (show `-` with autocomplete). Any dash is not case changed by TypeStyle. e.g. 
+
+```js
+const className = style(
+  { 
+    '-webkit-overflow-scrolling': 'touch',
+    backgroundColor: [
+      'rgb(200, 54, 54)',
+      'rgba(200, 54, 54, 0.5)',
+    ]
+  },
+);
+```
+
+You are encouraged to move stuff with vendor prefixes into semantic names e.g. I can move the scroll handling into a variable
+
+```js
+const scroll = {
+  '-webkit-overflow-scrolling': 'touch',
+  overflow: 'auto',
+}
+```
+
+And this as a mixin whenever I need scrolling support,
+
+```js
+const className = style(
+  scroll,
+  { 
+    backgroundColor: [
+      'rgb(200, 54, 54)',
+      'rgba(200, 54, 54, 0.5)',
+    ]
+  },
+);
+```
