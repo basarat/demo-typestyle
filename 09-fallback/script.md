@@ -37,4 +37,26 @@ const className = style(
   },
 );
 ```
-TypeStyle allows you to provide an array instead of a single value. 
+To support graceful fallbacks, TypeStyle allows you to provide an array instead of a single value. 
+
+```js
+const className = style(
+  { 
+    backgroundColor: [
+      'rgba(200, 54, 54, 0.5)',
+    ]
+  },
+);
+```
+And now we can provide a graceful fallback 
+
+```js
+const className = style(
+  { 
+    backgroundColor: [
+      'rgb(200, 54, 54)',
+      'rgba(200, 54, 54, 0.5)',
+    ]
+  },
+);
+```
