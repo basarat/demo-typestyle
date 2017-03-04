@@ -81,4 +81,4 @@ const className = style(
 );
 ```
 
-Note that you have true encapsulation of the media query (show the cursor at the media) under a className (show the cursor at className) something that is lacking in plain CSS.
+Note that you have true encapsulation of the media query (show the cursor at the media) i.e. all these three media queries are nested under a className (show the cursor at className) something that is lacking in plain CSS.
