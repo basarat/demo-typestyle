@@ -108,19 +108,52 @@ const App = ({className} : {className?}) => {
 ```
 and we don't pass in any customization class: 
 
-```
+```js
 <App />
 ```
-You can see that `className` will be undefined and if you look at the dom get this ugly and potentional style breaking class applied to the element.
+You can see that `className` will be undefined and if you look at the dom (show the dom), we get this ugly and potentional style breaking class applied to the element.
 
-You can make this better with code that checks if a className was passed in.
+* You can make this better with code that checks if a className was passed in.
 
-```
+```js
 baseClassName + (className ? ' ' + className : '') 
 ```
 
-Now let's consider a scenario where the `App` accepts a hasError property
+Now lets create another CSS class that applies a background color of `red`.
+
+```js
+const errorClassName = style({
+  backgroundColor: 'red'
+})
+```
+
+Our `App` accepts a hasError property 
 
 ```js
 const App = ({className, hasError} : {className?, hasError?}) => {
 ```
+It these uses this `hasError` property to create a string for className concatenation :
+
+```js
+baseClassName + (className ? ' ' + className : '') + (hasError ? ' ' + errorClassName : '')
+```
+
+You can see this quickly becoming needless verbose. Fortunately TypeStyle provides a handly `classes` function for composing CSS classes
+
+```js
+import { style, classes } from "typestyle";
+```
+
+This function filters out any non string values and combines the classNames. 
+* So we can replace this hacky concatenation with 
+* a simple call to classes
+* baseClassName which should always be applied
+* className which will automatically be ignored if it is undefined
+* if hasError `hasError` is true then also the errorClassName.
+
+```js
+// baseClassName + (className ? ' ' + className : '') + (hasError ? ' ' + errorClassName : '')
+classes(baseClassName, className, hasError && errorClassName)
+```
+
+In short `classes` is for style customization using CSS classes and can be used for theming and composing CSS classes.
