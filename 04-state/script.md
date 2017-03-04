@@ -56,4 +56,73 @@ const className = style(
 );
 ```
 
-Notice again the encapsulation of the states under the className which results in more maintainable CSS.
+Notice again the encapsulation of the states under the className which results in more maintainable CSS. If you want to order your pseudo classes e.g. * lets say we have a button: 
+
+```js
+ReactDOM.render(
+  <button className={className}>
+    Hello World States
+  </button>
+, document.getElementById('root'));
+```
+* And you have a different style for `&:focus` 
+
+```js
+const className = style(
+  { 
+    color : '#333',
+    transition: 'font-size .2s',
+    $nest: {
+      '&:hover': {
+        fontSize: '50px'
+      },
+      '&:focus': {
+        fontSize: '30px'
+      },
+    }
+  },
+);
+```
+* You can see that the hover style works fine. 
+* And if I click the button to `focus` it the focus style works fine too. 
+* But once its focused, hover no longer works.
+
+If you want to ensure that `&:hover` always takes precedece over `&:focus` you can do that by simply adding another `&` in your nested selector.
+
+```js
+const className = style(
+  { 
+    color : '#333',
+    transition: 'font-size .2s',
+    $nest: {
+      '&&:hover': {
+        fontSize: '50px'
+      },
+      '&:focus': {
+        fontSize: '30px'
+      },
+    }
+  },
+);
+```
+* And now if you click the button to focus it 
+* And then hover over it. The hover styles take precedence
+
+This is because in CSS `.foo.foo:hover` would take precedece over `.foo:focus` due to CSS specificity rules. Note that its conventional to write rules in increasing order of significance
+
+```js
+const className = style(
+  { 
+    color : '#333',
+    transition: 'font-size .2s',
+    $nest: {
+      '&:focus': {
+        fontSize: '30px'
+      },
+      '&&:hover': {
+        fontSize: '50px'
+      },
+    }
+  },
+);
+```
