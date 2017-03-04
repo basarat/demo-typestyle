@@ -40,7 +40,7 @@ const className = style(
 );
 ```
 
-Of course it is always fun to add a transition for the properties you are going to animation.
+Of course it is always fun to add a transition for the properties you are going to change.
 
 ```js
 const className = style(
