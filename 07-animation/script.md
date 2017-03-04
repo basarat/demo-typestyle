@@ -73,3 +73,18 @@ const className = style(
 ```
 
 * Note that The keyframes function very similar to the `style` function which simply takes a style object (cursor around the style object) and returns a className (cursor around className). The keyframes function takes CSS keyframes and returns an animation name.
+
+You can use `keyframes` inline as well e.g. lets create a fade in transition.
+
+* We only want this to run once so we remove the animationIterationCount
+* Use keyframes, from an opacity of `0` to an opacity of `1`. And now the div is rendered with a fade in.
+
+```js
+const className = style(
+  { 
+    fontSize : '20px',
+    animationName: keyframes({from: {opacity: 0}, to: {opacity: 1}}),
+    animationDuration: '1s',
+  },
+);
+```
