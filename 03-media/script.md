@@ -62,7 +62,7 @@ const className = style(
 
 (show the responsivenss of the layout)
 
-You can even write non standard media queries if you wanted using TypeStyle by simply using the `$nest` operator of the style object.
+You can even write non standard media queries if you wanted using TypeStyle by simply using the `$nest` property of the style object.
 
 ```js
 const className = style(
