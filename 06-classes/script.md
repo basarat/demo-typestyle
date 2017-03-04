@@ -156,4 +156,4 @@ This function filters out any non string values and combines the classNames.
 classes(baseClassName, className, hasError && errorClassName)
 ```
 
-In short `classes` is for style customization using CSS classes and can be used for theming and composing CSS classes.
+In short `classes` is for style customization using CSS classes and can be used for theming and composing CSS classes. (show arrows against the items).
