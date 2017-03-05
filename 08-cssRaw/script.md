@@ -3,11 +3,11 @@
 
 We have simple React Application that renders a div with a generated className to a root div in our `index.html`
 
-(change `Hello World `)
+(change `Hello World`)
 ```js
-import * as React from "react";
-import * as ReactDOM from "react-dom"; 
-import { style } from "typestyle";
+import * as React from 'react';
+import * as ReactDOM from 'react-dom'; 
+import { style } from 'typestyle';
 
 const className = style(
   { fontSize : '20px' },
@@ -23,7 +23,7 @@ ReactDOM.render(
 * TypeStyle allows you to use *raw unencapsulated* CSS using the `cssRaw` function that is exported from the main module.
 
 ```js
-import { style, cssRaw } from "typestyle";
+import { style, cssRaw } from 'typestyle';
 ```
 
 It simply takes any raw CSS you want typestyle to manage as a simple string. e.g. here we have some raw css that adds a red color to items with className `red`
