@@ -29,7 +29,7 @@ Now to style this div using TypeStyle. We can get TypeStyle from `npm`.
 * Simply run npm install typestyle and save it to our dependencies.
 
 ```sh
-npm i typestyle -S
+npm install typestyle --save
 ```
 
 * And then you can bring in the `style` function from typestyle. 
@@ -85,7 +85,7 @@ const className = style({
 ```js
 const className = style({
   color: 'darkorange',
-  position: 'reletive', // Show Error : typo
+  position: 'relativee', // Show Error : typo
 });
 ```
 ```js
@@ -94,11 +94,10 @@ const className = style({
   position: 'relative',
 });
 ```
-
 To demonstrate TypeStyle's framework agnostic nature, lets integrate TypeStyle into a React Application. I'll simply go ahead in install react react-dom and its types.
 
 ```
-npm install react react-dom @types/react @types/react-dom -D
+npm install react react-dom @types/react @types/react-dom --save
 ```
 
 Now within our file, we will bring in react and react-dom. I'll simply use ReactDom to render a simple div.

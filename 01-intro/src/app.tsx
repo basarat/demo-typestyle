@@ -1,6 +1,7 @@
 import { style } from 'typestyle';
 const className = style({
-  color: 'darkorange'
+  color: 'darkorange',
+  position: 'relative'
 });
 document.getElementById('root').innerHTML = `
   <div class="${className}">
