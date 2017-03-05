@@ -5,8 +5,8 @@ Here I have a simple file containing an app component that is styled using TypeS
 
 (change `Hello World`)
 ```js
-import * as React from "react";
-import { style } from "typestyle";
+import * as React from 'react';
+import { style } from 'typestyle';
 
 const className = style(
   { color : '#333' },
@@ -35,7 +35,7 @@ export const renderPage = ({ html, css }: { html: string, css: string }) => `
     <style id="styles-target">${css}</style>
   </head>
   <body>
-    <div id='root'>${html}</div>
+    <div id="root">${html}</div>
     <script src="./bundle.js"></script>
   </body>
 </html>
@@ -59,9 +59,9 @@ app.listen(3000, function () {
 Our `bundle.js` is being generated using webpack and points to `app/main.tsx` file. 
 
 ```js
-import * as React from "react";
-import * as ReactDOM from "react-dom";
-import { setStylesTarget } from "typestyle";
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
+import { setStylesTarget } from 'typestyle';
 
 ReactDOM.render(<App/>, document.getElementById('root'));
 setStylesTarget(document.getElementById('styles-target'));
