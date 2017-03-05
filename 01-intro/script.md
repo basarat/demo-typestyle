@@ -24,7 +24,7 @@ document.getElementById('root').innerHTML = `
 `;
 ``` 
 
-Now to style this simple div using CSS classes lets use TypeStyle. We can get it it from `npm`. 
+Now to style this div using TypeStyle. We can get TypeStyle from `npm`. 
 
 * Simply run npm install typestyle and save it to our dependencies.
 
