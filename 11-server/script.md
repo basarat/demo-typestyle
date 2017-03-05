@@ -26,21 +26,7 @@ Now let create a simple server (server.ts).
 
 import * as ReactDOMServer from 'react-dom/server';
 import { App } from './app/app';
-
 import * as express from 'express';
-
-const app = express();
-
-app.get('/', function (req, res) {
-  
-});
-
-app.use(express.static('public'));
-
-app.listen(3000, function () {
-  console.log('Example app listening on port 3000!')
-});
-
 
 export const renderPage = ({ html, css }: { html: string, css: string }) => `
 <html>
@@ -53,4 +39,16 @@ export const renderPage = ({ html, css }: { html: string, css: string }) => `
   </body>
 </html>
 `;
+
+const app = express();
+
+app.get('/', function (req, res) {
+  
+});
+
+app.use(express.static('public'));
+
+app.listen(3000, function () {
+  console.log('App listening on port 3000!')
+});
 ```
