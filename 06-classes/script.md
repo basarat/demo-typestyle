@@ -6,17 +6,17 @@ We have simple React Application that renders a div with a generated className t
 
 (change `Hello World`)
 ```js
-import * as React from "react";
-import * as ReactDOM from "react-dom"; 
-import { style } from "typestyle";
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
+import { style } from 'typestyle';
 
 const baseClassName = style(
-  { color : '#333' },
+  { color: '#333' },
 );
 
 ReactDOM.render(
   <div className={baseClassName}>
-    
+  
   </div>,
   document.getElementById('root')
 );
