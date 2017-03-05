@@ -1,3 +1,4 @@
 .alm
 node_modules
 10-static/src/index.html
+11-server/public/bundle.js

@@ -75,3 +75,7 @@ import { App } from './app';
 ReactDOM.render(<App />, document.getElementById('root'));
 setStylesTarget(document.getElementById('styles-target'));
 ```
+
+Now we go ahead and run `npm start` which will run webpack generating our `public/bundle.js` file and then start the http server at port 3000. If we open it in our browser you can see that it works as expect.
+
+If we look at the network tab the HTML and CSS was pre rendered on the server and has now been rehytraded on the client.
