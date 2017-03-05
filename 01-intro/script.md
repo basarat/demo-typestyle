@@ -132,6 +132,7 @@ const className = style({
 ReactDOM.render(
   <div className={className}>
     Hello world react
-  </div>
-, document.getElementById('root'));
+  </div>,
+  document.getElementById('root')
+);
 ```
