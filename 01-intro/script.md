@@ -5,10 +5,15 @@
 (Show `webpack.config.js`)
 Here we have a bare bones webpack application setup for TypeScript.
 
-(Show package.json)
-In our package.json we have a `start` target that runs webpack dev server serving up our `public` folder. 
+* Our entry file is src/app.tsx
+* Our output goes to the public folder as bundle.js
+* We told webpack to support the `.ts` and `.tsx` extensions
+* And we will be using ts-loader for ts and tsx files.
 
-(Show `index.html`) 
+(Show package.json)
+In our package.json we have a `start` target that runs webpack dev server serving up our `public` folder.
+
+(Show `index.html`)
 Within our public folder we have an index.html file we have a simple div with id root and then we load the webpack generated bundle file.
 
 (Show `app.tsx`)
@@ -20,9 +25,9 @@ document.getElementById('root').innerHTML = `
     Hello world
   </div>
 `;
-``` 
+```
 
-Now to style this div using TypeStyle. We can get TypeStyle from `npm`. 
+Now to style this div using TypeStyle. We can get TypeStyle from `npm`.
 
 * Simply run npm install typestyle and save it to our dependencies.
 
@@ -30,7 +35,7 @@ Now to style this div using TypeStyle. We can get TypeStyle from `npm`.
 npm install typestyle --save
 ```
 
-* And then you can bring in the `style` function from typestyle. 
+* And then you can bring in the `style` function from typestyle.
 * This function simply takes a style object
 
 ```js
@@ -49,7 +54,7 @@ const className = style({
 });
 ```
 
-You can apply this CSS class to the div quite easily: 
+You can apply this CSS class to the div quite easily:
 
 ```js
 import { style } from 'typestyle';
@@ -63,7 +68,7 @@ document.getElementById('root').innerHTML = `
 `;
 ```
 
-Note that TypeStyle is completely framework agnostic. It is a simple (CSS Style object -> CSS class name) framework. 
+Note that TypeStyle is completely framework agnostic. It is a simple (CSS Style object -> CSS class name) framework.
 
 TypeStyle is designed to have a zero config setup.
 
@@ -74,11 +79,11 @@ TypeStyle is designed to have a zero config setup.
 ```js
 const className = style({
   color: 'darkorange',
-  position: 'relative', // Show autocomplete 
+  position: 'relative', // Show autocomplete
 });
 ```
 
-* It also you a level of quick compile time protection against typos e.g. 
+* It also you a level of quick compile time protection against typos e.g.
 
 ```js
 const className = style({
@@ -102,7 +107,7 @@ Now within our file, we will bring in react and react-dom. I'll simply use React
 
 ```js
 import * as React from "react";
-import * as ReactDOM from "react-dom"; 
+import * as ReactDOM from "react-dom";
 import { style } from "typestyle";
 
 const className = style({
@@ -117,11 +122,11 @@ ReactDOM.render(
 , document.getElementById('root'));
 ```
 
-It can use the TypeStyle generated className just as easily as we did with framework free JS. 
+It can use the TypeStyle generated className just as easily as we did with framework free JS.
 
 ```js
 import * as React from "react";
-import * as ReactDOM from "react-dom"; 
+import * as ReactDOM from "react-dom";
 import { style } from "typestyle";
 
 const className = style({
