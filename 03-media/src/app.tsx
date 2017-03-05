@@ -6,15 +6,9 @@ const className = style(
   {
     color: '#333',
     transition: 'font-size .2s',
-    $nest: {
-      /** iPhone */
-      '@media screen and (-webkit-min-device-pixel-ratio: 2)': {
-        color: 'red'
-      }
-    }
   },
-  media({ minWidth: 300, maxWidth: 600 }, { fontSize: '30px' }),
-  media({ minWidth: 601 }, { fontSize: '50px' }),
+  media({ minWidth: 500, maxWidth: 700 }, { fontSize: '30px' }),
+  media({ minWidth: 701 }, { fontSize: '50px' })
 );
 
 ReactDOM.render(
