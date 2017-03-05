@@ -49,16 +49,13 @@ We can use this pattern to create static html files that are fully self containe
 
 ```js
 export const renderPage = ({ html, css }: { html: string, css: string }) => `
-<!DOCTYPE html>
 <html>
-<head>
-    <style>
-      ${css}
-    </style>
-</head>
-<body>
-  <div>${html}</div>
-</body>
+  <head>
+    <style>${css}</style>
+  </head>
+  <body>
+    <div>${html}</div>
+  </body>
 </html>
 `;
 ```
