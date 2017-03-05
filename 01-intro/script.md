@@ -70,7 +70,7 @@ document.getElementById('root').innerHTML = `
 `;
 ```
 
-Note that TypeStyle is completely framework agnostic. It is a simple (CSS Style object -> CSS class name) framework.
+Note that TypeStyle is completely UI framework  agnostic. It is a simple (CSS Style object -> CSS class name) framework.
 
 TypeStyle is designed to have a zero config setup.
 
