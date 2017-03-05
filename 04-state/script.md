@@ -10,14 +10,15 @@ import * as ReactDOM from "react-dom";
 import { style } from "typestyle";
 
 const className = style(
-  { color : '#333' },
+  { color: '#333' },
 );
 
 ReactDOM.render(
   <div className={className}>
     Hello World States
-  </div>
-, document.getElementById('root'));
+  </div>,
+  document.getElementById('root')
+);
 ```
 
 * The style object takes a $nest property which allows you to style arbitrary child selectors (show $nest). 
@@ -29,7 +30,7 @@ Here we make the font size blow up when you hover over the div.
 ```js
 const className = style(
   { 
-    color : '#333',
+    color: '#333',
     $nest: {
       '&:hover': {
         fontSize: '50px'
@@ -44,7 +45,7 @@ Of course it is always fun to add a transition for the properties you are going 
 ```js
 const className = style(
   { 
-    color : '#333',
+    color: '#333',
     transition: 'font-size .2s',
     $nest: {
       '&:hover': {
@@ -69,7 +70,7 @@ ReactDOM.render(
 ```js
 const className = style(
   { 
-    color : '#333',
+    color: '#333',
     transition: 'font-size .2s',
     $nest: {
       '&:hover': {
