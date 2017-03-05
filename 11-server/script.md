@@ -22,9 +22,10 @@ export const App = () => {
 }
 ```
 
-Now let create a simple server. First I will go ahead and install express `npm install express @types/express -S`. Next we will create a `server.ts` file.
+Now let create a simple server. First I will go ahead and install express `npm install express @types/express -S`. Next we will create a `server.tsx` file.
 
 ```js
+import * as React from 'react';
 import * as ReactDOMServer from 'react-dom/server';
 import { getStyles } from 'typestyle';
 import { App } from './app/app';
