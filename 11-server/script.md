@@ -30,7 +30,7 @@ import { App } from './app/app';
 import { getStyles } from 'typestyle';
 import * as express from 'express';
 
-export const renderPage = ({ html, css }: { html: string, css: string }) => `
+export const renderPage = ({ html, css }) => `
 <html>
   <head>
     <style id="styles-target">${css}</style>
