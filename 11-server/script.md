@@ -8,9 +8,11 @@ Here I have a simple file containing an app component that is styled using TypeS
 import * as React from 'react';
 import { style } from 'typestyle';
 
-const className = style(
-  { color : '#333' },
-);
+const className = style({
+  color: 'red',
+  fontSize: '30px',
+});
+
 const App = () => {
   return (
     <div className={className}>
@@ -20,10 +22,9 @@ const App = () => {
 }
 ```
 
-Now let create a simple server (server.ts).
+Now let create a simple server. First I will go ahead and install express `npm install express @types/express -S`. Next we will create a `server.ts` file.
 
 ```js
-
 import * as ReactDOMServer from 'react-dom/server';
 import { App } from './app/app';
 import { getStyles } from 'typestyle';
