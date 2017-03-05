@@ -24,10 +24,12 @@ document.getElementById('root').innerHTML = `
 `;
 ``` 
 
-Now to style this simple div using CSS classes lets use TypeStyle. You simply install it from `npm`
+Now to style this simple div using CSS classes lets use TypeStyle. We can get it it from `npm`. 
+
+* Simply run npm install typestyle and save it to our dependencies.
 
 ```sh
-npm install typestyle
+npm i typestyle -S
 ```
 
 And then you can bring in the `style` function from typestyle. This function simply takes a style object
