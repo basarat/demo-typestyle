@@ -5,8 +5,8 @@ Here I have a simple file containing an app component that is styled using TypeS
 
 (change `Hello World `)
 ```js
-import * as React from "react";
-import { style } from "typestyle";
+import * as React from 'react';
+import { style } from 'typestyle';
 
 const className = style(
   { color : '#333' },
@@ -24,7 +24,7 @@ const App = () => {
 * Lets log it out to see the output.
 
 ```js
-import * as ReactDOM from "react-dom/server"; 
+import * as ReactDOM from 'react-dom/server'; 
 const html = ReactDOMServer.renderToString(<App/>);
 console.log({html});
 ```
@@ -32,12 +32,12 @@ console.log({html});
 Similar to how you can get all the HTML for a react component, you can get all the CSS managed by TypeStyle using the `getStyles()` function. We can bring in this function from `typestyle` 
 
 ```js
-import { style, getStyles } from "typestyle";
+import { style, getStyles } from 'typestyle';
 ```
 It simply returns all the CSS as a string 
 
 ```js
-import * as ReactDOM from "react-dom/server"; 
+import * as ReactDOM from 'react-dom/server'; 
 const html = ReactDOMServer.renderToString(<App/>);
 const css = getStyles();
 console.log({html, css});
@@ -69,7 +69,7 @@ const renderedPage = renderPage({ html, css });
 Now if we wanted we can write this rendered page to a file on disk e.g. 
 
 ```js
-import * as fs from "fs";
+import * as fs from 'fs';
 fs.writeFileSync(__dirname + '/index.html', renderedPage);
 ```
 This html file is fully self contained and can be pushed to an online hosting like `github pages` or `s3`. You can also use this pattern to write template files which can then be sent as an email or rendered to pdf etc.
