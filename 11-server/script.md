@@ -26,6 +26,7 @@ Now let create a simple server (server.ts).
 
 import * as ReactDOMServer from 'react-dom/server';
 import { App } from './app/app';
+import { getStyles } from 'typestyle';
 import * as express from 'express';
 
 export const renderPage = ({ html, css }: { html: string, css: string }) => `
@@ -43,7 +44,9 @@ export const renderPage = ({ html, css }: { html: string, css: string }) => `
 const app = express();
 
 app.get('/', function (req, res) {
-  
+  const html = ReactDOMServer.renderToString(<App/>);
+  const css = getStyles();
+  res.send(renderPage({ html,css }));
 });
 
 app.use(express.static('public'));
