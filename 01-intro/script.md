@@ -21,7 +21,7 @@ document.getElementById('root').innerHtml = `
   <div>
     Hello world
   </div>
-`
+`;
 ``` 
 
 Now to style this simple div using CSS classes lets use TypeStyle. You simply install it from `npm`
