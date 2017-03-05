@@ -26,8 +26,8 @@ Now let create a simple server. First I will go ahead and install express `npm i
 
 ```js
 import * as ReactDOMServer from 'react-dom/server';
-import { App } from './app/app';
 import { getStyles } from 'typestyle';
+import { App } from './app/app';
 import * as express from 'express';
 
 export const renderPage = ({ html, css }) => `
