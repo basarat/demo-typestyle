@@ -29,7 +29,7 @@ Here we make the font size blow up when you hover over the div.
 
 ```js
 const className = style(
-  { 
+  {
     color: '#333',
     $nest: {
       '&:hover': {
@@ -62,8 +62,9 @@ Notice again the encapsulation of the states under the className which results i
 ReactDOM.render(
   <button className={className}>
     Hello World States
-  </button>
-, document.getElementById('root'));
+  </button>,
+  document.getElementById('root')
+);
 ```
 * And you have a different style for `&:focus` 
 
@@ -108,7 +109,9 @@ const className = style(
 * And now if you click the button to focus it 
 * And then hover over it. The hover styles take precedence
 
-This is because in CSS `.foo.foo:hover` would take precedece over `.foo:focus` due to CSS specificity rules. Note that its conventional to write rules in increasing order of significance
+This is because in CSS `.foo.foo:hover` would take precedece over `.foo:focus` due to CSS specificity rules.
+
+* Note that its conventional to write rules in increasing order of significance
 
 ```js
 const className = style(

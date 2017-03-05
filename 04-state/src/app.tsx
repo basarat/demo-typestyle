@@ -3,7 +3,15 @@ import * as ReactDOM from "react-dom";
 import { style } from "typestyle";
 
 const className = style(
-  { color: '#333' },
+  { 
+    color: '#333',
+    transition: 'font-size .2s',
+    $nest: {
+      '&:hover': {
+        fontSize: '50px'
+      }
+    }
+  },
 );
 
 ReactDOM.render(
