@@ -56,7 +56,7 @@ const className = style({
 });
 ```
 
-You can apply this generated CSS class to the div quite easily:
+Because it is just a simple CSS class, you can apply to the div quite easily by using the html class attribute and assigning it the generated CSS className.
 
 ```js
 import { style } from 'typestyle';
@@ -70,9 +70,11 @@ document.getElementById('root').innerHTML = `
 `;
 ```
 
-Note that TypeStyle is completely UI framework  agnostic. It is a simple (CSS Style object -> CSS class name) framework.
+Note that style function is completely UI framework  agnostic. It is a simple (CSS Style object -> CSS class name) transform.
 
-TypeStyle is designed to have a zero config setup.
+TypeStyle is also designed to have a zero config setup.
+
+
 
 * Here the generated CSS is actually getting written a `style` tag that is managed by TypeStyle. (inspect the page and show the style tag in the head). Note that this name is derived from the style object and therefore you don't have to worry about coming up with unique css classnames yourself.
 * Because it generates an actual stylesheet, this means that it has the full power of CSS at its disposal.
