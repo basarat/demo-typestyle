@@ -7,17 +7,17 @@ Here we have a bare bones webpack application setup for TypeScript.
 
 * Our entry file is src/app.tsx
 * Our output goes to the public folder as bundle.js
-* We told webpack to support the `.ts` and `.tsx` extensions
-* And we will be using ts-loader for ts and tsx files.
+* We tell webpack to support `.ts` and `.tsx` files
+* And we will be using ts-loader for these ts and tsx files.
 
 (Show package.json)
-In our package.json we have a `start` target that runs webpack dev server serving up our `public` folder.
+In our package.json we have a `start` target that runs webpack dev server, serving up our `public` folder.
 
 (Show `index.html`)
-Within our public folder we have an index.html file we have a simple div with id root and then we load the webpack generated bundle file.
+Within our public folder we have an index.html file. This file contains a simple div with id root and then we load the webpack generated bundle file.
 
 (Show `app.tsx`)
-Now lets jump to our application entry point. Note that at this point application is completely framework free at the moment. We can quite easily write to the root div using just plain JavaScript.
+Now lets jump to our application entry point. Note that right now this application is completely framework free. Using just plain JavaScript we can access the root div in our index.html file and write some html to it.
 
 ```js
 document.getElementById('root').innerHTML = `
@@ -27,7 +27,7 @@ document.getElementById('root').innerHTML = `
 `;
 ```
 
-We can run our application using our `npm start` target. And now if we open localhost:8080, can see that this div shows up in the dom and we can update it with new content as needed.
+We can run our application using our package.json's `npm start` target. And now if we open localhost:8080, can see that this div shows up in the dom and we can update it with new content as needed.
 
 Now to style this div using TypeStyle. We can get TypeStyle from `npm`.
 
@@ -38,7 +38,7 @@ npm install typestyle --save
 ```
 
 * And then you can bring in the `style` function from typestyle.
-* This function simply takes a style object
+* This function simply takes a style object containing CSS property value pairs.
 
 ```js
 import { style } from "typestyle";
@@ -47,7 +47,7 @@ style({
 });
 ```
 
-And returns a generated CSS class name:
+It generates a CSS class based on this object and returns the name of the class as a string.
 
 ```js
 import { style } from "typestyle";
@@ -56,7 +56,7 @@ const className = style({
 });
 ```
 
-You can apply this CSS class to the div quite easily:
+You can apply this generated CSS class to the div quite easily:
 
 ```js
 import { style } from 'typestyle';
@@ -74,7 +74,7 @@ Note that TypeStyle is completely UI framework  agnostic. It is a simple (CSS St
 
 TypeStyle is designed to have a zero config setup.
 
-* Here the generated CSS is actually getting written a `style` tag that is managed by TypeStyle. (inspect the page and show the style tag in the head).
+* Here the generated CSS is actually getting written a `style` tag that is managed by TypeStyle. (inspect the page and show the style tag in the head). Note that this name is derived from the style object and therefore you don't have to worry about coming up with unique css classnames yourself.
 * Because it generates an actual stylesheet, this means that it has the full power of CSS at its disposal.
 
 * Notice that since TypeStyle is written in TypeScript you get autocomplete for free.
