@@ -8,9 +8,11 @@ Here I have a simple file containing an app component that is styled using TypeS
 import * as React from 'react';
 import { style } from 'typestyle';
 
-const className = style(
-  { color : '#333' },
-);
+const className = style({
+  color: 'red',
+  fontSize: '30px',
+});
+
 const App = () => {
   return (
     <div className={className}>
@@ -24,9 +26,9 @@ const App = () => {
 * Lets log it out to see the output.
 
 ```js
-import * as ReactDOM from 'react-dom/server'; 
-const html = ReactDOMServer.renderToString(<App/>);
-console.log({html});
+import * as ReactDOMServer from 'react-dom/server';
+const html = ReactDOMServer.renderToString(<App />);
+console.log({ html });
 ```
 
 Similar to how you can get all the HTML for a react component, you can get all the CSS managed by TypeStyle using the `getStyles()` function. We can bring in this function from `typestyle` 
