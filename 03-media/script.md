@@ -6,18 +6,19 @@ We have simple React Application that renders a div with a generated className t
 (change `Hello World` to `Hello World Media Queries`)
 ```js
 import * as React from "react";
-import * as ReactDOM from "react-dom"; 
+import * as ReactDOM from "react-dom";
 import { style } from "typestyle";
 
 const className = style(
-  { color : '#333' },
+  { color: '#333' },
 );
 
 ReactDOM.render(
   <div className={className}>
     Hello World Media Queries
-  </div>
-, document.getElementById('root'));
+  </div>,
+  document.getElementById('root')
+);
 ```
 
 TypeStyle provides a `media` function to make it easy to write media queries which we can import from the main module

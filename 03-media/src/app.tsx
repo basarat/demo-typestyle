@@ -3,13 +3,12 @@ import * as ReactDOM from "react-dom";
 import { style } from "typestyle";
 
 const className = style(
-  { fontSize: '30px' },
-  { color: 'red' },
+  { color: '#333' },
 );
 
 ReactDOM.render(
   <div className={className}>
-    Hello World Mixins
+    Hello World Media Queries
   </div>,
   document.getElementById('root')
 );
