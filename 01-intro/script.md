@@ -133,7 +133,7 @@ const className = style({
 
 ReactDOM.render(
   <div className={className}>
-    Hello world
+    Hello world react
   </div>
 , document.getElementById('root'));
 ```
