@@ -6,9 +6,9 @@ We have simple React Application that renders a div with a generated className t
 
 (change `Hello World `)
 ```js
-import * as React from "react";
-import * as ReactDOM from "react-dom"; 
-import { style } from "typestyle";
+import * as React from 'react';
+import * as ReactDOM from 'react-dom'; 
+import { style } from 'typestyle';
 
 const className = style({
   backgroundColor: 'rgba(200, 54, 54, 0.5)',
@@ -17,8 +17,9 @@ const className = style({
 ReactDOM.render(
   <div className={className}>
     Hello world
-  </div>
-, document.getElementById('root'));
+  </div>,
+  document.getElementById('root')
+);
 ```
 Assume that we want to provide a graceful fallback for browers that do not support the rgba css function. In raw CSS you would write it like the following
 
