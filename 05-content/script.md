@@ -48,9 +48,13 @@ CSS also allows you to power the `content` of before and after pseudo elements u
 
 * E.g. lets replace the content with the value that will be derived from `attr(data-after)`. Notice the lack of quotes here as this is a CSS expression. 
 
+```js
+content: `attr(data-after)`
+```
+
 * You can pass any `data-`prop to a dom component in react e.g. `data-after="Pseduo Elements"`.
 
-```
+```js
 <div className={className} data-after="Pseudo Elements">
 ```
 
