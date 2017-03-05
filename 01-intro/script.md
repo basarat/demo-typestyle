@@ -3,7 +3,7 @@
 > TypeStyle is the only current CSS in JS solution that is designed with TypeSafety and TypeScript developer ergonomics in mind. In this lesson we will show how easy it is to setup with zero configuration and also demonstrate its UI framework agnostic nature.
 
 (Show `webpack.config.js`)
-Here we have a simple application setup using webpack with a barebones TypeScript setup.
+Here we have a bare bones webpack application setup for TypeScript.
 
 (Show package.json)
 In our package.json we have a `start` target that runs webpack dev server serving up our `public` folder. 
@@ -11,7 +11,7 @@ In our package.json we have a `start` target that runs webpack dev server servin
 (Show `index.html`) 
 Within our public folder we have an index.html file we have a simple div with id root and then we load the webpack generated bundle file.
 
-(Show `index.ts`)
+(Show `app.tsx`)
 Note that this application is completely framework free at the moment. We can quite easily write to the root div using just plain JavaScript.
 
 ```js
