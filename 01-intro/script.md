@@ -17,7 +17,7 @@ In our package.json we have a `start` target that runs webpack dev server servin
 Within our public folder we have an index.html file we have a simple div with id root and then we load the webpack generated bundle file.
 
 (Show `app.tsx`)
-Note that this application is completely framework free at the moment. We can quite easily write to the root div using just plain JavaScript.
+Now lets jump to our application entry point. Note that at this point application is completely framework free at the moment. We can quite easily write to the root div using just plain JavaScript.
 
 ```js
 document.getElementById('root').innerHTML = `
@@ -26,6 +26,8 @@ document.getElementById('root').innerHTML = `
   </div>
 `;
 ```
+
+We can run our application using our `npm start` target. And now if we open localhost:8080, can see that this div shows up in the dom and we can update it with new content as needed.
 
 Now to style this div using TypeStyle. We can get TypeStyle from `npm`.
 
