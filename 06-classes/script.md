@@ -119,7 +119,7 @@ You can see that `className` will be undefined and if you look at the dom (show 
 * You can make this better with code that checks if a className was passed in.
 
 ```js
-baseClassName + (className ? ' ' + className : '') 
+baseClassName + (className ? ' ' + className : '')
 ```
 
 Now lets create another CSS class that applies a background color of `red`.
@@ -133,7 +133,7 @@ const errorClassName = style({
 Our `App` accepts a hasError property 
 
 ```js
-const App = ({className, hasError} : {className?, hasError?}) => {
+const App = ({ className, hasError }: { className?, hasError?}) => {
 ```
 It these uses this `hasError` property to create a string for className concatenation :
 
