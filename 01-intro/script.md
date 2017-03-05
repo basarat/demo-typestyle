@@ -143,3 +143,5 @@ ReactDOM.render(
   document.getElementById('root')
 );
 ```
+
+And you can see that TypeStyle just generates and manages CSS classes, you can use it with any framework you want.
