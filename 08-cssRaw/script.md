@@ -41,10 +41,11 @@ We can show that this css is loaded by applying this className to the div that w
 
 ```js
 ReactDOM.render(
-  <div className={ className + ' red' }>
+  <div className={className + ' red'}>
     Hello world
-  </div>
-, document.getElementById('root'));
+  </div>,
+  document.getElementById('root')
+);
 ```
 
 You can call cssRaw multiple times and the new CSS is simply appended to the buffer of the CSS that is managed by TypeStyle. 
@@ -57,7 +58,7 @@ cssRaw(`
 `);
 ```
 ```js
-  <div className={ className + ' red bold' }>
+<div className={className + ' red bold'}>
 ```
 
 Using cssRaw is highly discouraged as it suffers from global namespace pollution e.g. here the `red` and `bold` CSS classnames are global and can interfer with any other library stylesheet you might have in your project.
