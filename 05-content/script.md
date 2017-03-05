@@ -41,7 +41,8 @@ const className = style(
 ```
 And you can see that it shows up.
 
-Note that there are a few gotcha's with the CSS content property. Notice that we added explicit quotes around the content. This is required by CSS if you are going to pass in a simple string. 
+* Note that there are a few gotcha's with the CSS content property (highlight the content property name).
+* Notice that we added explicit quotes around the content. This is required by CSS if you are going to pass in a simple string. 
 
 CSS also allows you to power the `content` of before and after pseudo elements using the `attr` expression. 
 
