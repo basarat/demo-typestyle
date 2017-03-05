@@ -78,7 +78,7 @@ ReactDOM.render(
 * We accept this className as an argument to our App component
 
 ```js
-const App = ({className}) => {
+const App = ({ className }) => {
   return (
     <div className={baseClassName}>
       Hello World
@@ -90,7 +90,7 @@ const App = ({className}) => {
 * And then we can append it to our base className 
 
 ```js
-const App = ({className}) => {
+const App = ({ className }) => {
   return (
     <div className={baseClassName + ' ' + className}>
       Hello World
@@ -101,7 +101,7 @@ const App = ({className}) => {
 This works fine if the className is always provided. However if you want to make this className property optional 
 
 ```js
-const App = ({className} : {className?}) => {
+const App = ({ className }: { className?}) => {
   return (
     <div className={baseClassName + ' ' + className}>
       Hello World
