@@ -32,7 +32,7 @@ You can use the media function to specify CSS breakpoints. e.g. we can change th
 ```js
 const className = style(
   { color : '#333' },
-  media({minWidth:300}, {fontSize: '30px'}) 
+  media({ minWidth: 300 }, { fontSize: '30px' })
 );
 ``` 
 
@@ -44,7 +44,7 @@ const className = style(
     color: '#333',
     transition: 'font-size .2s',
   },
-  media({minWidth:300}, {fontSize: '30px'}) 
+  media({ minWidth: 300 }, { fontSize: '30px' })
 );
 ```
 
