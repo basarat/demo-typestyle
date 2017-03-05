@@ -8,7 +8,7 @@ const className = style(
 
 ReactDOM.render(
   <div className={className}>
-
+  
   </div>,
   document.getElementById('root')
 );
