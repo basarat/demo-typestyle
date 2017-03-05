@@ -54,16 +54,15 @@ const className = style({
 You can apply this CSS class to the div quite easily: 
 
 ```js
-import { style } from "typestyle";
+import { style } from 'typestyle';
 const className = style({
   color: 'darkorange'
 });
-
-document.getElementById('root').innerHtml = `
+document.getElementById('root').innerHTML = `
   <div class="${className}">
     Hello world
   </div>
-`
+`;
 ```
 
 Note that TypeStyle is completely framework agnostic. It is a simple (CSS Style object -> CSS class name) framework. 
