@@ -3,7 +3,7 @@
 
 Here I have a simple file containing an app component that is styled using TypeStyle.
 
-(change `Hello World `)
+(change `Hello World`)
 ```js
 import * as React from "react";
 import { style } from "typestyle";
@@ -20,28 +20,37 @@ const App = () => {
 }
 ```
 
-Now let create a simple server that renders out the 
+Now let create a simple server (server.ts).
 
 ```js
-var {html, css} = StyleSheetServer.renderStatic(() => {
-    return ReactDOMServer.renderToString(<App/>);
+
+import * as ReactDOMServer from 'react-dom/server';
+import { App } from './app/app';
+
+import * as express from 'express';
+
+const app = express();
+
+app.get('/', function (req, res) {
+  
 });
 
-// Return the base HTML, which contains your rendered HTML as well as a
-// simple rehydration script.
-return `
+app.use(express.static('public'));
+
+app.listen(3000, function () {
+  console.log('Example app listening on port 3000!')
+});
+
+
+export const renderPage = ({ html, css }: { html: string, css: string }) => `
 <html>
-    <head>
-        <style id="styles-target">${css}</style>
-    </head>
-    <body>
-        <div id='root'>${html}</div>
-        <script src="./bundle.js"></script>
-        <script>
-            ReactDOM.render(<App/>, document.getElementById('root'));
-            setStylesTarget(document.getElementById('styles-target'));
-        </script>
-    </body>
+  <head>
+    <style id="styles-target">${css}</style>
+  </head>
+  <body>
+    <div id='root'>${html}</div>
+    <script src="./bundle.js"></script>
+  </body>
 </html>
 `;
 ```
