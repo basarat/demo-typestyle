@@ -1,5 +1,4 @@
 # Add styles for pseudo states using TypeStyle
-
 > TypeStyle is a very thin layer on top of CSS. In this lesson we show how to change styles based on pseudo states e.g. :focus :hover and :active which matches very closely with what you would write with raw CSS.
 
 We have simple React Application that renders a div with a generated className to a root div in our `index.html`
