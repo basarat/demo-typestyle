@@ -2,8 +2,6 @@
 
 > TypeStyle is the only current CSS in JS solution that is designed with TypeSafety and TypeScript developer ergonomics in mind. In this lesson we will show how easy it is to setup with zero configuration and also demonstrate its UI framework agnostic nature.
 
-> In this lesson we will show a basic web application and then how easy it is to add TypeStyle to the workflow showing easy it is to style your DOM.
-
 (Show `webpack.config.js`)
 Here we have a simple application setup using webpack with a barebones TypeScript setup.
 
