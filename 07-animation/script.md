@@ -3,11 +3,11 @@
 
 We have simple React Application that renders a div with a generated className to a root div in our `index.html`
 
-(change `Hello World `)
+(change `Hello World`)
 ```js
-import * as React from "react";
-import * as ReactDOM from "react-dom"; 
-import { style } from "typestyle";
+import * as React from 'react';
+import * as ReactDOM from 'react-dom'; 
+import { style } from 'typestyle';
 
 const className = style(
   { fontSize : '20px' },
@@ -16,14 +16,15 @@ const className = style(
 ReactDOM.render(
   <div className={className}>
     
-  </div>
-, document.getElementById('root'));
+  </div>,
+  document.getElementById('root')
+);
 ```
 
 * TypeStyle provides a keyframes function that takes CSS keyframes and returns a generated animation name.
 
 ```js
-import { style, keyframes } from "typestyle";
+import { style, keyframes } from 'typestyle';
 ```
 
 Here we generate an animation that transitions the color from black to blue. 
