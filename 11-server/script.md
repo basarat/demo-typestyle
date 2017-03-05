@@ -13,7 +13,7 @@ const className = style({
   fontSize: '30px',
 });
 
-const App = () => {
+export const App = () => {
   return (
     <div className={className}>
       Hello World
@@ -58,6 +58,11 @@ app.listen(3000, function () {
 ```
 
 Our `bundle.js` is being generated using webpack and points to `app/main.tsx` file. 
+* Lets go ahead and create this main.tsx file 
+* We will bring and react and react dom for the html.
+* From TypeStyle we will bring in `setStylesTarget` for the css.
+* We will hydrate the html using React DOM at the root div 
+* We will hydrate the css using `setStylesTarget` at the `styles-target` tag.
 
 ```js
 import * as React from 'react';
