@@ -8,7 +8,7 @@ const baseClassName = style(
 
 ReactDOM.render(
   <div className={baseClassName}>
-  
+    Hello world
   </div>,
   document.getElementById('root')
 );

@@ -26,12 +26,12 @@ ReactDOM.render(
 * Then we simply render this new component in to the root dom element.
 
 ```js
-import * as React from "react";
-import * as ReactDOM from "react-dom"; 
-import { style } from "typestyle";
+import * as React from 'react';
+import * as ReactDOM from 'react-dom'; 
+import { style } from 'typestyle';
 
 const baseClassName = style(
-  { color : '#333' },
+  { color: '#333' },
 );
 const App = () => {
   return (
@@ -42,8 +42,9 @@ const App = () => {
 }
 
 ReactDOM.render(
-  <App/>
-, document.getElementById('root'));
+  <App/>,
+  document.getElementById('root')
+);
 ```
 
 * At the heart of TypeStyle is the `style` function which very simply takes a style object (cursor around the style object) and returns a className (cursor around className).
@@ -53,9 +54,9 @@ ReactDOM.render(
 * We can generate a class on the fly using TypeStyle.
 
 ```js
-import * as React from "react";
-import * as ReactDOM from "react-dom"; 
-import { style } from "typestyle";
+import * as React from 'react';
+import * as ReactDOM from 'react-dom'; 
+import { style } from 'typestyle';
 
 const baseClassName = style(
   { color : '#333' },
@@ -142,7 +143,7 @@ baseClassName + (className ? ' ' + className : '') + (hasError ? ' ' + errorClas
 You can see this quickly becoming needless verbose. Fortunately TypeStyle provides a handly `classes` function for composing CSS classes
 
 ```js
-import { style, classes } from "typestyle";
+import { style, classes } from 'typestyle';
 ```
 
 This function filters out any non string values and combines the classNames. 
