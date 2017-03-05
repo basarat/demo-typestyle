@@ -57,3 +57,12 @@ app.listen(3000, function () {
 ```
 
 Our `bundle.js` is being generated using webpack and points to `app/main.tsx` file. 
+
+```js
+import * as React from "react";
+import * as ReactDOM from "react-dom";
+import { setStylesTarget } from "typestyle";
+
+ReactDOM.render(<App/>, document.getElementById('root'));
+setStylesTarget(document.getElementById('styles-target'));
+```
