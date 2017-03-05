@@ -6,18 +6,19 @@ We have simple React Application that renders a div with a generated className t
 (change `Hello World`)
 ```js
 import * as React from 'react';
-import * as ReactDOM from 'react-dom'; 
+import * as ReactDOM from 'react-dom';
 import { style } from 'typestyle';
 
 const className = style(
-  { fontSize : '20px' },
+  { fontSize: '20px' },
 );
 
 ReactDOM.render(
   <div className={className}>
-    
-  </div>
-, document.getElementById('root'));
+
+  </div>,
+  document.getElementById('root')
+);
 ```
 
 * TypeStyle allows you to use *raw unencapsulated* CSS using the `cssRaw` function that is exported from the main module.
