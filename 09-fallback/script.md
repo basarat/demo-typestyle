@@ -23,9 +23,11 @@ ReactDOM.render(
 ```
 Assume that we want to provide a graceful fallback for browers that do not support the rgba css function. In raw CSS you would write it like the following
 
-```
+```js
+`
 background-color: 'rgb(200, 54, 54, 0.5)'; // Fallback 
 background-color: 'rgba(200, 54, 54, 0.5)'; // Graceful upgrade
+`
 ```
 
 Notice that with CSS in JS you can only have one value against a key. Since we are using TypeScript it will warn us if we duplicate a key by mistake.
