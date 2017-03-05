@@ -5,19 +5,19 @@
 > In this lesson we will show a basic web application and then how easy it is to add TypeStyle to the workflow showing easy it is to style your DOM.
 
 (Show `webpack.config.js`)
-Here we have a simple application setup using webpack 2 with a barebones TypeScript setup.
+Here we have a simple application setup using webpack with a barebones TypeScript setup.
 
 (Show package.json)
 In our package.json we have a `start` target that runs webpack dev server serving up our `public` folder. 
 
 (Show `index.html`) 
-Within our index.html file we have a simple div with id root and then we load the webpack generated bundle file.
+Within our public folder we have an index.html file we have a simple div with id root and then we load the webpack generated bundle file.
 
 (Show `index.ts`)
-Note that this application is completely framework free at the moment. We can quite easily write to the root div using just plain JavaScript
+Note that this application is completely framework free at the moment. We can quite easily write to the root div using just plain JavaScript.
 
 ```js
-document.getElementById('root').innerHtml = `
+document.getElementById('root').innerHTML = `
   <div>
     Hello world
   </div>
