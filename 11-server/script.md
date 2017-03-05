@@ -20,59 +20,28 @@ const App = () => {
 }
 ```
 
-* We can easily render this component to a string using `ReactDOMServer.renderToString()`.
-* Lets log it out to see the output.
+Now let create a simple server that renders out the 
 
 ```js
-import * as ReactDOM from "react-dom/server"; 
-const html = ReactDOMServer.renderToString(<App/>);
-console.log({html});
-```
+var {html, css} = StyleSheetServer.renderStatic(() => {
+    return ReactDOMServer.renderToString(<App/>);
+});
 
-Similar to how you can get all the HTML for a react component, you can get all the CSS managed by TypeStyle using the `getStyles()` function. We can bring in this function from `typestyle` 
-
-```js
-import { style, getStyles } from "typestyle";
-```
-It simply returns all the CSS as a string 
-
-```js
-import * as ReactDOM from "react-dom/server"; 
-const html = ReactDOMServer.renderToString(<App/>);
-const css = getStyles();
-console.log({html, css});
-```
-We can use this pattern to create static html files that are fully self contained with all the `html` and `css` we can do that quite easily. 
-
-* First we write a `renderPage` function that takes `html` and css`.
-* It uses string templates populate our template page with the provided html and css
-
-```js
-export const renderPage = ({ html, css }: { html: string, css: string }) => `
-<!DOCTYPE html>
+// Return the base HTML, which contains your rendered HTML as well as a
+// simple rehydration script.
+return `
 <html>
-<head>
-    <style>
-      ${css}
-    </style>
-</head>
-<body>
-  <div>${html}</div>
-</body>
+    <head>
+        <style id="styles-target">${css}</style>
+    </head>
+    <body>
+        <div id='root'>${html}</div>
+        <script src="./bundle.js"></script>
+        <script>
+            ReactDOM.render(<App/>, document.getElementById('root'));
+            setStylesTarget(document.getElementById('styles-target'));
+        </script>
+    </body>
 </html>
 `;
 ```
-
-* Finally we can call this function with our generated html and css to get the rendered page.
-
-```js
-const renderedPage = renderPage({ html, css });
-```
-
-Now if we wanted we can write this rendered page to a file on disk e.g. 
-
-```js
-import * as fs from "fs";
-fs.writeFileSync(__dirname + '/index.html', renderedPage);
-```
-This html file is fully self contained and can be pushed to an online hosting like `github pages` or `s3`. You can also use this pattern to write template files which can then be sent as an email or rendered to pdf etc.
