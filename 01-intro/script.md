@@ -32,7 +32,8 @@ Now to style this simple div using CSS classes lets use TypeStyle. We can get it
 npm i typestyle -S
 ```
 
-And then you can bring in the `style` function from typestyle. This function simply takes a style object
+* And then you can bring in the `style` function from typestyle. 
+* This function simply takes a style object
 
 ```js
 import { style } from "typestyle";
