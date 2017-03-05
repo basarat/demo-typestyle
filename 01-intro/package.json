@@ -11,13 +11,11 @@
   "keywords": [],
   "author": "",
   "license": "MIT",
-  "devDependencies": {
+  "dependencies": {
     "ts-loader": "2.0.1",
     "typescript": "2.2.1",
     "webpack": "2.2.1",
-    "webpack-dev-server": "2.4.1"
-  },
-  "dependencies": {
+    "webpack-dev-server": "2.4.1",
     "@types/react": "^15.0.14",
     "@types/react-dom": "^0.14.23",
     "react": "^15.4.2",
