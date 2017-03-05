@@ -62,6 +62,7 @@ Our `bundle.js` is being generated using webpack and points to `app/main.tsx` fi
 * Lets go ahead and create this main.tsx file 
 * We will bring and react and react dom for the html.
 * From TypeStyle we will bring in `setStylesTarget` for the css.
+* Next we bring in our root app component.
 * We will hydrate the html using React DOM at the root div 
 * We will hydrate the css using `setStylesTarget` at the `styles-target` tag.
 
@@ -69,7 +70,8 @@ Our `bundle.js` is being generated using webpack and points to `app/main.tsx` fi
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { setStylesTarget } from 'typestyle';
+import { App } from './app';
 
-ReactDOM.render(<App/>, document.getElementById('root'));
+ReactDOM.render(<App />, document.getElementById('root'));
 setStylesTarget(document.getElementById('styles-target'));
 ```
