@@ -7,18 +7,19 @@ We have simple React Application that renders a div with a generated className t
 (change `Hello World`)
 ```js
 import * as React from "react";
-import * as ReactDOM from "react-dom"; 
+import * as ReactDOM from "react-dom";
 import { style } from "typestyle";
 
 const className = style(
-  { color : '#333' },
+  { color: '#333' },
 );
 
 ReactDOM.render(
   <div className={className}>
 
-  </div>
-, document.getElementById('root'));
+  </div>,
+  document.getElementById('root')
+);
 ```
 
 * The style object takes a $nest property which allows you to style arbitrary child selectors (show $nest). 
