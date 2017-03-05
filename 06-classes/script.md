@@ -4,7 +4,7 @@
 
 We have simple React Application that renders a div with a generated className to a root div in our `index.html`
 
-(change `Hello World `)
+(change `Hello World`)
 ```js
 import * as React from "react";
 import * as ReactDOM from "react-dom"; 
@@ -17,8 +17,9 @@ const baseClassName = style(
 ReactDOM.render(
   <div className={baseClassName}>
     
-  </div>
-, document.getElementById('root'));
+  </div>,
+  document.getElementById('root')
+);
 ```
 
 * Lets go ahead and move this div into a stateless component.
