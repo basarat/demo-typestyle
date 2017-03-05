@@ -40,8 +40,8 @@ We can use this generated animationName as a CSS property for our style object
 
 ```js
 const className = style(
-  { 
-    fontSize : '20px',
+  {
+    fontSize: '20px',
     animationName: colorAnimationName,
   },
 );
@@ -51,8 +51,8 @@ CSS keyframe animations are controlled using additional properties in the `anima
 
 ```js
 const className = style(
-  { 
-    fontSize : '20px',
+  {
+    fontSize: '20px',
     animationName: colorAnimationName,
     animationDuration: '1s',
   },
@@ -65,7 +65,7 @@ Now the animation plays for `1s`.
 ```js
 const className = style(
   { 
-    fontSize : '20px',
+    fontSize: '20px',
     animationName: colorAnimationName,
     animationDuration: '1s',
     animationIterationCount: 'infinite',
@@ -82,9 +82,9 @@ You can use `keyframes` inline as well e.g. lets create a fade in transition.
 
 ```js
 const className = style(
-  { 
-    fontSize : '20px',
-    animationName: keyframes({from: {opacity: 0}, to: {opacity: 1}}),
+  {
+    fontSize: '20px',
+    animationName: keyframes({ from: { opacity: 0 }, to: { opacity: 1 } }),
     animationDuration: '1s',
   },
 );

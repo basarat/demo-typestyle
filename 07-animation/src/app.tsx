@@ -12,3 +12,10 @@ ReactDOM.render(
   </div>,
   document.getElementById('root')
 );
+const className = style(
+  {
+    fontSize: '20px',
+    animationName: keyframes({ from: { opacity: 0 }, to: { opacity: 1 } }),
+    animationDuration: '1s',
+  },
+);
