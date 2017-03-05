@@ -50,7 +50,7 @@ We can use this pattern to create static html files that are fully self containe
 * It uses string templates populate our template page with the provided html and css
 
 ```js
-export const renderPage = ({ html, css }: { html: string, css: string }) => `
+export const renderPage = ({ html, css }) => `
 <html>
   <head>
     <style>${css}</style>

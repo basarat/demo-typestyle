@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { style } from 'typestyle';
+import { style, getStyles } from 'typestyle';
 
 const className = style({
   color: 'red',
@@ -16,5 +16,18 @@ const App = () => {
 
 import * as ReactDOMServer from 'react-dom/server';
 const html = ReactDOMServer.renderToString(<App />);
-console.log({ html });
+const css = getStyles();
 
+export const renderPage = ({ html, css }) => `
+<html>
+  <head>
+    <style>${css}</style>
+  </head>
+  <body>
+    <div>${html}</div>
+  </body>
+</html>
+`;
+const renderedPage = renderPage({ html, css });
+import * as fs from 'fs';
+fs.writeFileSync(__dirname + '/index.html', renderedPage);
