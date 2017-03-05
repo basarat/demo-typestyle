@@ -52,12 +52,12 @@ You can add as many media queries as you want. This is because the media functio
 
 ```js
 const className = style(
-  { 
+  {
     color: '#333',
     transition: 'font-size .2s',
   },
-  media({minWidth:300, maxWidth: 600}, {fontSize: '30px'}),
-  media({minWidth:601}, {fontSize: '50px'}) 
+  media({ minWidth: 300, maxWidth: 600 }, { fontSize: '30px' }),
+  media({ minWidth: 601 }, { fontSize: '50px' })
 );
 ```
 
@@ -67,7 +67,7 @@ You can even write non standard media queries if you wanted using TypeStyle by s
 
 ```js
 const className = style(
-  { 
+  {
     color: '#333',
     transition: 'font-size .2s',
     $nest: {
@@ -77,8 +77,8 @@ const className = style(
       }
     }
   },
-  media({minWidth:300, maxWidth: 600}, {fontSize: '30px'}),
-  media({minWidth:601}, {fontSize: '50px'}),
+  media({ minWidth: 300, maxWidth: 600 }, { fontSize: '30px' }),
+  media({ minWidth: 601 }, { fontSize: '50px' }),
 );
 ```
 
