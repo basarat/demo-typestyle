@@ -2,13 +2,13 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { style } from 'typestyle';
 
-const baseClassName = style(
-  { color: '#333' },
+const className = style(
+  { fontSize: '20px' },
 );
 
 ReactDOM.render(
-  <div className={baseClassName}>
-    Hello world
+  <div className={className}>
+
   </div>,
   document.getElementById('root')
 );
