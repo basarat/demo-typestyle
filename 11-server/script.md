@@ -55,3 +55,5 @@ app.listen(3000, function () {
   console.log('App listening on port 3000!')
 });
 ```
+
+Our `bundle.js` is being generated using webpack and points to `app/main.tsx` file. 
