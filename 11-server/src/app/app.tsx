@@ -6,7 +6,7 @@ const className = style({
   fontSize: '30px',
 });
 
-const App = () => {
+export const App = () => {
   return (
     <div className={className}>
       Hello World
