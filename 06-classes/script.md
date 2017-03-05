@@ -70,8 +70,9 @@ const App = () => {
 }
 
 ReactDOM.render(
-  <App className={style({fontSize: '30px'})}/>
-, document.getElementById('root'));
+  <App className={style({ fontSize: '30px' })} />,
+  document.getElementById('root')
+);
 ```
 
 * We accept this className as an argument to our App component
