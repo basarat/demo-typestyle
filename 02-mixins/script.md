@@ -32,6 +32,11 @@ const className = style(
 
 This allows you to easily move reusable style objects out of the style function e.g.
 
+* we can move out the fontSize object into a variable and
+* then resuse it in any style arguments we want.
+
+At this point `fontSize` is essentially a mixin.
+
 ```js
 const fontSize = { fontSize: '30px' };
 const className = style(
