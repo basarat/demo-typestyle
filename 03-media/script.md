@@ -1,5 +1,7 @@
-# Add TypeStyle responsive styles using Media Queries
-> Media queries are very important for designs that you want to work on both mobile and desktop browers. TypeStyle gives it special attention to make it easy to write them in CSS in JS. We show the `media` function. We also demonstrate how you can add non standard media queries that you want.
+# Add responsive styles using TypeStyle Media Queries
+> Media queries are very important for designs that you want to work on both mobile and desktop browsers. TypeStyle gives media queries special attention, making it easy to write them using CSS in JS. 
+
+> In this lesson we show TypeStyle's `media` function. We also demonstrate how you can add non standard media queries if you want. Finally we show how organizing media queries this way is encapsulated under CSS class names.
 
 Here we have simple React Application that renders a div with some content to the document.
 
