@@ -102,8 +102,9 @@ const className = style(
 
 * And if I click the button to `focus` it the focus style works fine too.
 * But once its focused, hover no longer works.
+* This is because the focus style is winning over the hover styles.
 
-If you want to ensure that `&:hover` always takes precedece over `&:focus` you can do that by simply adding another `&` in your nested selector.
+If you want to ensure that the `&:hover` always takes precedence over `&:focus` you can do that by simply adding another `&` in your nested selector.
 
 ```js
 const className = style(
@@ -126,7 +127,8 @@ const className = style(
 
 This is because in CSS `.foo.foo:hover` would take precedece over `.foo:focus` due to CSS specificity rules.
 
-* Note that its conventional to write rules in increasing order of significance
+* One final thing worth mentioning is
+* that its conventional to write rules in increasing order of significance
 
 ```js
 const className = style(
