@@ -1,5 +1,5 @@
-# Reuse styles using TypeStyle mixins
-> TypeStyle’s style function allows you to give multiple objects as an argument. This provides a simple extensible reusability model. We cover typestyle mixin and mixin creators in this lesson.
+# Reusable styles using TypeStyle mixins
+> TypeStyle’s style function allows you to give multiple objects as an argument. This provides a simple extensible reuse-ability model. We cover typestyle mixin and mixin creators in this lesson. We also demonstrate that you have the full power of JavaScript at your disposal when using TypeStyle.  
 
 We have simple React Application that renders a div with some content to the document
 
