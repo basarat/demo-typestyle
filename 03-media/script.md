@@ -10,7 +10,7 @@ import * as ReactDOM from "react-dom";
 import { style } from "typestyle";
 
 const className = style(
-  { color: '#333' },
+  { color: 'red' },
 );
 
 ReactDOM.render(
@@ -31,17 +31,17 @@ You can use the media function to specify CSS breakpoints. e.g. we can change th
 
 ```js
 const className = style(
-  { color : '#333' },
+  { color: 'red' },
   media({ minWidth: 500 }, { fontSize: '30px' })
 );
-``` 
+```
 
 To make the UI feel more fluent we can easily add a CSS transition on fontSize e.g. here I am going to apply a transition of `.2s` on fontSize
 
 ```js
 const className = style(
-  { 
-    color: '#333',
+  {
+    color: 'red',
     transition: 'font-size .2s',
   },
   media({ minWidth: 500 }, { fontSize: '30px' })
@@ -53,7 +53,7 @@ You can add as many media queries as you want. This is because the media functio
 ```js
 const className = style(
   {
-    color: '#333',
+    color: 'red',
     transition: 'font-size .2s',
   },
   media({ minWidth: 500, maxWidth: 700 }, { fontSize: '30px' }),
@@ -68,7 +68,7 @@ You can even write non standard media queries if you wanted using TypeStyle by s
 ```js
 const className = style(
   {
-    color: '#333',
+    color: 'red',
     transition: 'font-size .2s',
     $nest: {
       /** iPhone */
