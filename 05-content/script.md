@@ -59,7 +59,17 @@ content: `attr(data-after)`
 * You can pass any `data-`prop to a dom component in react e.g. `data-after="Pseduo Elements"`.
 
 ```js
-<div className={className} data-after="Pseudo Elements">
+<div className={className} data-after=" Pseudo Elements">
 ```
 
 And you can see that we get the same effect. But now the content of the after is being driven by this attribute, "Pseudo Elements Attribute Powered".
+
+* You can target as many pseudo element selectors as you want using different keys under the `$nest` property.
+* To demonstrate that let change the styles of our div when its selected using the `&::selection` selector
+* Right now if we select the div you can see the browser default of black text with blue background
+* We can change it to white text with a black background.
+```js
+  color: 'white',
+  background: 'black',
+```
+* And now if we select the div you can see this new effect.
