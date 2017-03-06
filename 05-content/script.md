@@ -1,8 +1,8 @@
-# Style CSS psuedo elements with TypeStyle
+# Style CSS pseudo elements with TypeStyle
 
 > Just like pseudo-classes, pseudo-elements are added to selectors but instead of describing a special state, they allow you to style certain parts of an element.
 
-> In this lesson we show how you can insert new content into the DOM using CSS pseudo elements. We also cover user other pseudo element selectors.
+> In this lesson we show how you can insert new content into the DOM using CSS pseudo elements. We also cover using other pseudo element selectors to change default browser behaviors.
 
 * Here we have simple React Application that renders a div with some content to the DOM. (write hello world)
 * This div is being styled with a CSS class generated using TypeStyle's style function. As an example we can bump up the fontSize.
