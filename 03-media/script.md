@@ -50,7 +50,7 @@ const className = style(
 );
 ```
 
-You can add as many media queries as you want. This is because the media function just returns a new NestedCSS object. Here we add another distinct media query for when the width is great than 600.
+You can add as many media queries as you want. This is because the media function just returns a new NestedCSS object, which fits well with TypeStyle's mixin model. Here we add another distinct media query for when the width is great than 600.
 
 ```js
 const className = style(
