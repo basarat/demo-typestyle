@@ -29,11 +29,11 @@ const className = style(
 );
 ```
 
-* The style object also takes a $nest property which allows you to style arbitrary child selectors (show $nest).
-* Any `&` in the selector will be replaced by the generated className (show `&`).
-* We can add a pseudo state such as `:hover` as a suffix to the & (show :hover) to add styles specific to the pseduo state.
+* In addition to CSS Property names, the style object also takes a $nest property which allows you to style arbitrary child selectors (show $nest).
+* Every key in $nest is considered a selector. Any `&` in the selector will be replaced by the generated className (show `&`).
+* This allows us to use `&:hover` to add styles specific to the hover pseduo state.
 
-Here we make the font size blow up when you hover over the div.
+As an example we will simply bump up the font size to 50 pixels when you hover over the div.
 
 ```js
 const className = style(
@@ -48,7 +48,9 @@ const className = style(
 );
 ```
 
-Of course it is always fun to add a transition for the properties you are going to change.
+It is always fun and super easy to add a CSS transition for the properties you are going to change in different states.
+
+With this transition in place even our excessively exaggerated property change feel much more smooth.
 
 ```js
 const className = style(
@@ -64,11 +66,11 @@ const className = style(
 );
 ```
 
-Notice again the encapsulation of the states under the className which results in more maintainable CSS.
+One thing worth pointing out is the encapsulation of state styles under the className which results in more maintainable CSS.
 
-You can styles for as many states as you need using different keys under the nest property.
+You can add styles for as many states as you need using different keys under the nest property.
 
-Lets change our div to a button so we can focus on it.
+To demonstrate that, lets change our div to a button so that it supports the focus pseudo state.
 
 ```js
 ReactDOM.render(
@@ -78,7 +80,9 @@ ReactDOM.render(
   document.getElementById('root')
 );
 ```
-* And you have a font size of 30px for `&:focus`
+* We will go ahead and add a selector for the `:focus` state.
+* And within its style object we will bump up the fontsize to 30px.
+
 
 ```js
 const className = style(
@@ -98,11 +102,13 @@ const className = style(
 ```
 * You can see that if I tab into the button to give it focus the font size bumps up.
 * If I tab away it goes down.
-* If I hover over the button it gets a nice big font size of 50px.
+* If I hover over the button it gets a nice big font size of 50px which goes back if I hover away.
 
-* And if I click the button to `focus` it the focus style works fine too.
-* But once its focused, hover no longer works.
-* This is because the focus style is winning over the hover styles.
+One interesting thing to note is that both hover and focus are changing the fontSize so there are bound to be conflicts.
+
+* If I click the button to `focus` it, the focus style works fine.
+* But while it is focused, hover styles do not work.
+* This is because the focus style is winning over the hover style.
 
 If you want to ensure that the `&:hover` always takes precedence over `&:focus` you can do that by simply adding another `&` in your nested selector.
 
@@ -122,13 +128,13 @@ const className = style(
   },
 );
 ```
-* And now if you click the button to focus it
+* And now if we tab to the button to focus it
 * And then hover over it. The hover styles take precedence
 
-This is because in CSS `.foo.foo:hover` would take precedece over `.foo:focus` due to CSS specificity rules.
+There isn't any TypeStyle magic here. This works simply because in CSS repeated classnames `.foo.foo:hover` increase CSS specificity. So the first selector takes precedence over the second one.
 
 * One final thing worth mentioning is
-* that its conventional to write rules in increasing order of significance
+* that its conventional to write selectors in increasing order of significance if it matters. So we will go ahead and move hover down.
 
 ```js
 const className = style(
