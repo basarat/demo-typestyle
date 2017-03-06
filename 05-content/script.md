@@ -70,9 +70,9 @@ And now if we run the application you can see it shows up as expected "Pseudo El
 * You can target different pseudo element selectors by using different keys under the `$nest` property.
 * To demonstrate that let change the styles of our div when its selected using the `&::selection` pseudo-element selector
 * If we select the div right now, you can see the browser default of white text with blue background
-* We can change it to white text with a black background.
+* We can override the browser defaults and change it to a gold text with black background.
 ```js
   color: 'gold',
   background: 'black',
 ```
-* And now if we select the div you can see this new black and gold effect.
+* And now if we go ahead, ... , and select the div using our mouse you can see this new black and gold effect.
