@@ -1,7 +1,7 @@
 # Add TypeStyle responsive styles using Media Queries
 > Media queries are very important for designs that you want to work on both mobile and desktop browers. TypeStyle gives it special attention to make it easy to write them in CSS in JS. We show the `media` function. We also demonstrate how you can add non standard media queries that you want.
 
-We have simple React Application that renders a div with a generated className to a root div in our `index.html`
+Here we have simple React Application that renders a div with some content to the document.
 
 (change `Hello World` to `Hello World Media Queries`)
 ```js
@@ -21,13 +21,15 @@ ReactDOM.render(
 );
 ```
 
+We bring in TypeStyle and use its style function to generate a css class that sets the color to red. We then use this css class to style the root div.
+
 TypeStyle provides a `media` function to make it easy to write media queries which we can import from the main module
 
 ```js
 import { style, media } from "typestyle";
 ```
 
-You can use the media function to specify CSS breakpoints. e.g. we can change the fontSize when the width becomes greater than 300px
+You can use the media function to specify CSS breakpoints. e.g. when the width becomes at least 500px we can bump up the fontSize.
 
 ```js
 const className = style(
