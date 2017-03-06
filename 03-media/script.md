@@ -28,8 +28,7 @@ TypeStyle provides a `media` function to make it easy to write media queries whi
 ```js
 import { style, media } from "typestyle";
 ```
-
-You can use the media function to specify CSS breakpoints. e.g. when the width becomes at least 500px we can bump up the fontSize.
+The first argument to the media function is the media query. This argument can be  followed by any number of style objects. Here we have specified that when the width becomes at least 500px bump up the fontSize for this className.
 
 ```js
 const className = style(
@@ -38,7 +37,9 @@ const className = style(
 );
 ```
 
-To make the UI feel more fluent we can easily add a CSS transition on fontSize e.g. here I am going to apply a transition of `.2s` on fontSize
+Now as we play around with the width of the viewport you can see the fontsize change because of this media query.
+
+To make the UI feel more fluent we can easily add a CSS transition e.g. here I specfying a transition for font-size over a duration of `.2` seconds
 
 ```js
 const className = style(
@@ -50,7 +51,13 @@ const className = style(
 );
 ```
 
-You can add as many media queries as you want. This is because the media function just returns a new NestedCSS object, which fits well with TypeStyle's mixin model. Here we add another distinct media query for when the width is great than 600.
+And now we if play around with the viewport width you can see it feels much more fluent.
+
+You can add as many media queries as you want for a class. This is because the media function just returns a new NestedCSS object, which fits well with TypeStyle's mixin model.
+
+For example we can restrict this first media query to a maximum width of 700px.
+
+Next we go ahead and another distinct media query for when the width is great than 700 and bump up the font size even more.
 
 ```js
 const className = style(
@@ -65,7 +72,7 @@ const className = style(
 
 (show the responsivenss of the layout)
 
-You can even write non standard media queries if you wanted using TypeStyle by simply using the `$nest` property of the style object.
+You can even write non standard media queries if you wanted. You simply nest the query it under the `$nest` property of the style object.
 
 ```js
 const className = style(
@@ -75,7 +82,7 @@ const className = style(
     $nest: {
       /** iPhone */
       '@media screen and (-webkit-min-device-pixel-ratio: 2)': {
-        color: 'red'
+        backgroundColor: 'blue'
       }
     }
   },
@@ -84,4 +91,4 @@ const className = style(
 );
 ```
 
-Note that you have true encapsulation of the media query (show the cursor at the media) i.e. all these three media queries are nested under a className (show the cursor at className) something that is lacking in plain CSS.
+One final thing worth mentioning here is that you have true encapsulation of the media query (show the cursor at the media) i.e. all these media queries are nested under a className (show the cursor at className) something that is lacking in plain CSS.
