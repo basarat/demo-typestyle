@@ -1,5 +1,5 @@
 # Reuse styles using TypeStyle mixins
-> TypeStyle’s style function allows you to give multiple objects as an argument. This provides a simple extensible reusability model. We cover mixin and mixin creators in this lesson.
+> TypeStyle’s style function allows you to give multiple objects as an argument. This provides a simple extensible reusability model. We cover typestyle mixin and mixin creators in this lesson.
 
 We have simple React Application that renders a div with a generated className to a root div in our `index.html`
 
@@ -21,7 +21,7 @@ ReactDOM.render(
 );
 ```
 
-The style function allows you to pass in as many style objects as you want. e.g. 
+The style function allows you to pass in as many style objects as you want. e.g.
 
 ```js
 const className = style(
@@ -40,9 +40,9 @@ const className = style(
 );
 ```
 
-Finally you an even make utility functions out of such common things in your code. 
-* As an example we can convert the `fontSize` variable into a function that 
-* takes a value of type number and returns an object with the fontSize property as desired. 
+Finally you an even make utility functions out of such common things in your code.
+* As an example we can convert the `fontSize` variable into a function that
+* takes a value of type number and returns an object with the fontSize property as desired.
 * We finally call this function with the desired value for a particular class.
 
 ```js
@@ -52,7 +52,7 @@ const className = style(
   { color: 'red' },
 );
 ```
-Since such mixin creators are real JavaScript functions you can make them as powerful as you want e.g. lets add support for string or numbers to the fontSize mixin 
+Since such mixin creators are real JavaScript functions you can make them as powerful as you want e.g. lets add support for string or numbers to the fontSize mixin
 
 ```js
 const fontSize = (value: number | string) => {
