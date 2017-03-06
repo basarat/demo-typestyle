@@ -1,5 +1,5 @@
-# Add styles for pseudo states using TypeStyle
-> TypeStyle is a very thin layer on top of CSS. In this lesson we show how to change styles based on pseudo states e.g. :focus :hover and :active which matches very closely with what you would write with raw CSS.
+# Style CSS pseudo-classes using TypeStyle
+> TypeStyle is intentionally a very thin layer on top of CSS. In this lesson we show how to change styles based on pseudo classes e.g. :focus :hover and :active which matches very closely with what you would write with raw CSS.
 
 Here we have simple React Application that renders a div with some content that is being styled by a CSS class generated using TypeStyle.
 
@@ -31,7 +31,7 @@ const className = style(
 
 * In addition to CSS Property names, the style object also takes a $nest property which allows you to style arbitrary child selectors (show $nest).
 * Every key in $nest is considered a selector. Any `&` in the selector will be replaced by the generated className (show `&`).
-* This allows us to use `&:hover` to add styles specific to the hover pseduo state.
+* This allows us to use `&:hover` to add styles specific to the hover pseduo class.
 
 As an example we will simply bump up the font size to 50 pixels when you hover over the div.
 
@@ -48,7 +48,7 @@ const className = style(
 );
 ```
 
-It is always fun and super easy to add a CSS transition for the properties you are going to change in different states.
+It is always fun and super easy to add a CSS transition for the properties you are going to change in different pseudo classes.
 
 With this transition in place even our excessively exaggerated property change feel much more smooth.
 
@@ -66,11 +66,11 @@ const className = style(
 );
 ```
 
-One thing worth pointing out is the encapsulation of state styles under the className which results in more maintainable CSS.
+One thing worth pointing out is the encapsulation of pseudo class styles under the className which results in more maintainable CSS.
 
-You can add styles for as many states as you need using different keys under the nest property.
+You can add styles for as many pseudo classes as you need using different keys under the nest property.
 
-To demonstrate that, lets change our div to a button so that it supports the focus pseudo state.
+To demonstrate that, lets change our div to a button so that it supports the focus pseudo class.
 
 ```js
 ReactDOM.render(
@@ -80,7 +80,7 @@ ReactDOM.render(
   document.getElementById('root')
 );
 ```
-* We will go ahead and add a selector for the `:focus` state.
+* We will go ahead and add a selector for the `:focus` class.
 * And within its style object we will bump up the fontsize to 30px.
 
 
