@@ -1,6 +1,8 @@
 # Add type safety to CSS using TypeStyle
 
-> TypeStyle is the only current CSS in JS solution that is designed with TypeSafety and TypeScript developer ergonomics in mind. In this lesson we will show how easy it is to setup with zero configuration and also demonstrate its UI framework agnostic nature.
+> TypeStyle is the only current CSS in JS solution that is designed with TypeSafety and TypeScript developer ergonomics in mind.
+
+> In this lesson we will show how easy it is to setup with zero configuration and also demonstrate its UI framework agnostic nature. We will also show how to integrate it with your application framework of choice using ReactJS as an example
 
 (Show `webpack.config.js`)
 Here we have a bare bones webpack application setup for TypeScript.
@@ -74,12 +76,11 @@ Note that style function is completely UI framework  agnostic. It is a simple (C
 
 TypeStyle is also designed to have a zero config setup.
 
+If we go ahead and inspect the div in the dom it has the generated classname as expected. This classname is derived from the style object so you don't have to worry about coming up with globally unique names. Each style object with the same properties would get the same class name.
 
+Simultaneuously there is a style tag in the document head that is inserted by TypeStyle and contains the relevant CSS. Because it generates an actual stylesheet, this means that it has the full power of CSS at its disposal.
 
-* Here the generated CSS is actually getting written a `style` tag that is managed by TypeStyle. (inspect the page and show the style tag in the head). Note that this name is derived from the style object and therefore you don't have to worry about coming up with unique css classnames yourself.
-* Because it generates an actual stylesheet, this means that it has the full power of CSS at its disposal.
-
-* Notice that since TypeStyle is written in TypeScript you get autocomplete for free.
+* Now if we jump back to the style function, Notice that since TypeStyle is written in TypeScript you get autocomplete for free.
 ```js
 const className = style({
   color: 'darkorange',
@@ -87,7 +88,9 @@ const className = style({
 });
 ```
 
-* It also you a level of quick compile time protection against typos e.g.
+* I will also protect against typos in CSS values if the CSS property only accepts a restricted set.
+
+* and TypeStyle will always prevent typos in CSS property names e.g. if you misspell colour TypeScript will complain.
 
 ```js
 const className = style({
@@ -125,6 +128,7 @@ ReactDOM.render(
   </div>
 , document.getElementById('root'));
 ```
+And now we will apply a css class to this div using React's className property.
 
 It can use the TypeStyle generated className just as easily as we did with framework free JS.
 
