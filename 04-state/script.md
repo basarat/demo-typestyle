@@ -1,7 +1,7 @@
 # Add styles for pseudo states using TypeStyle
 > TypeStyle is a very thin layer on top of CSS. In this lesson we show how to change styles based on pseudo states e.g. :focus :hover and :active which matches very closely with what you would write with raw CSS.
 
-Here we have simple React Application that renders a div with some content to the document. The div is styled using a CSS class generated using TypeStyle.
+Here we have simple React Application that renders a div with some content that is being styled by a CSS class generated using TypeStyle.
 
 
 ```js
@@ -30,7 +30,6 @@ const className = style(
 ```
 
 * The style object also takes a $nest property which allows you to style arbitrary child selectors (show $nest).
-
 * Any `&` in the selector will be replaced by the generated className (show `&`).
 * We can add a pseudo state such as `:hover` as a suffix to the & (show :hover) to add styles specific to the pseduo state.
 
@@ -65,7 +64,11 @@ const className = style(
 );
 ```
 
-Notice again the encapsulation of the states under the className which results in more maintainable CSS. If you want to order your pseudo classes e.g. * lets say we have a button:
+Notice again the encapsulation of the states under the className which results in more maintainable CSS.
+
+You can styles for as many states as you need using different keys under the nest property.
+
+Lets change our div to a button so we can focus on it.
 
 ```js
 ReactDOM.render(
@@ -75,7 +78,7 @@ ReactDOM.render(
   document.getElementById('root')
 );
 ```
-* And you have a different style for `&:focus`
+* And you have a font size of 30px for `&:focus`
 
 ```js
 const className = style(
@@ -93,7 +96,10 @@ const className = style(
   },
 );
 ```
-* You can see that the hover style works fine.
+* You can see that if I tab into the button to give it focus the font size bumps up.
+* If I tab away it goes down.
+* If I hover over the button it gets a nice big font size of 50px.
+
 * And if I click the button to `focus` it the focus style works fine too.
 * But once its focused, hover no longer works.
 
