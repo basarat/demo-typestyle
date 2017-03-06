@@ -80,3 +80,5 @@ ReactDOM.render(
   </div>
 , document.getElementById('root'));
 ```
+
+Using such mixin and mixin creators allows you to use your JavaScript code matainainability practices to manage your CSS.
