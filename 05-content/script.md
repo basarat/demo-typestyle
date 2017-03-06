@@ -1,22 +1,26 @@
-# Insert new content into the DOM using CSS psuedo elements with TypeStyle
+# Style CSS psuedo elements with TypeStyle
 
-> In this lesson we show how you can insert new content into the DOM using CSS pseudo elements.
+> Just like pseudo-classes, pseudo-elements are added to selectors but instead of describing a special state, they allow you to style certain parts of an element.
 
-We have simple React Application that renders a div with a generated className to a root div in our `index.html`
+> In this lesson we show how you can insert new content into the DOM using CSS pseudo elements. We also cover user other pseudo element selectors.
 
-(change `Hello World`)
+* Here we have simple React Application that renders a div with the text hello world to the DOM. (write hello world)
+* This div is styled using TypeStyle (goto definition of className)
+
 ```js
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { style } from 'typestyle';
 
 const className = style(
-  { color: '#333' },
+  {
+    fontSize: '20px',
+  },
 );
 
 ReactDOM.render(
   <div className={className}>
-
+    Hello world
   </div>,
   document.getElementById('root')
 );
@@ -24,8 +28,8 @@ ReactDOM.render(
 
 * The style object takes a $nest property which allows you to style arbitrary child selectors (show $nest).
 * Any `&` in the selector will be replaced by the generated className (show `&`).
-* We can add a pseudo state such as `::after` as a suffix to the & (show ::after) to add styles specific to the pseduo state.
-* We can set the content of this new dom element using the `content` pure CSS property
+* We can add a pseudo state such as `::after` as a suffix to create a selector specific to this pseudo element (show ::after).
+* We can use different CSS properties to style this selector e.g.  set the content of this new dom element using the `content` CSS property
 
 ```js
 const className = style(
