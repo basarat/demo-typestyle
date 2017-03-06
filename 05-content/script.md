@@ -45,31 +45,33 @@ const className = style(
 ```
 And you can see that it shows up.
 
-* Note that there are a few gotcha's with the CSS content property (highlight the content property name).
-* Notice that we added explicit quotes around the content. This is required by CSS if you are going to pass in a simple string.
+* There is one thing worth mentioning about the CSS content property (highlight the content property name).
+* Notice that we added explicit quotes around the content value. This is required by CSS if you are going to pass in a simple string. (highlight the content value).
 
-CSS also allows you to power the `content` of before and after pseudo elements using the `attr` expression.
+An alternative to a simple string is the `attr` expression.
 
-* E.g. lets replace the content with the value that will be derived from `attr(data-after)`. Notice the lack of quotes here as this is a CSS expression.
+* E.g. lets replace the content with the value that will be derived from `attr(data-after)`. Notice the lack of quotes in this case.
 
 ```js
 content: `attr(data-after)`
 ```
 
-* You can pass any `data-`prop to a dom component in react e.g. `data-after="Pseduo Elements"`.
+* You can pass any `data-`prop to a dom component in react e.g. `data-after="Pseduo Again"`.
 
 ```js
-<div className={className} data-after=" Pseudo Elements">
+<div className={className} data-after=" Pseudo Again">
 ```
 
 And you can see that we get the same effect. But now the content of the after is being driven by this attribute, "Pseudo Elements Attribute Powered".
 
-* You can target as many pseudo element selectors as you want using different keys under the `$nest` property.
+* And if this attribute is not there it doesn't show up.
+
+* You can target different pseudo element selectors by using different keys under the `$nest` property.
 * To demonstrate that let change the styles of our div when its selected using the `&::selection` selector
 * Right now if we select the div you can see the browser default of black text with blue background
 * We can change it to white text with a black background.
 ```js
-  color: 'white',
+  color: 'black',
   background: 'black',
 ```
-* And now if we select the div you can see this new effect.
+* And now if we select the div you can see this new black and gold effect.
