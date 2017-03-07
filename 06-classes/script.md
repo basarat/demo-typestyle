@@ -123,12 +123,12 @@ baseClassName
 + (className ? ' ' + className : '')
 ```
 
-Now lets create another CSS class that applies a background color of `red`.
+Now lets create a CSS class that applies a background color of `red`.
 
 ```js
-const errorClassName = style({
-  backgroundColor: 'red'
-})
+const errorClassName = style(
+  { backgroundColor: 'red' }
+)
 ```
 
 Our `App` accepts a hasError property
@@ -151,6 +151,7 @@ import { style, classes } from 'typestyle';
 ```
 
 This function filters out any non string values and combines the classNames.
+
 * So we can replace this hacky concatenation with
 * a simple call to classes
 * baseClassName which should always be applied
