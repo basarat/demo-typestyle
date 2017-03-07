@@ -51,7 +51,7 @@ ReactDOM.render(
 
 * Because it generates just classNames it is very easy to integrate theming into our component by simply taking a `className` property. (add a class name prop)
 
-* We can generate a class on the fly using TypeStyle.
+* The users of our component can use any framework they want to author the CSS class. They can even generate a class on the fly using TypeStyle.
 
 ```js
 import * as React from 'react';
@@ -101,7 +101,7 @@ const App = ({ className }) => {
 This works fine if the className is always provided. However if you want to make this className property optional
 
 ```js
-const App = ({ className }: { className?}) => {
+const App = ({ className }: { className?: string }) => {
   return (
     <div className={baseClassName + ' ' + className}>
       Hello World
@@ -119,7 +119,8 @@ You can see that `className` will be undefined and if you look at the dom (show 
 * You can make this better with code that checks if a className was passed in.
 
 ```js
-baseClassName + (className ? ' ' + className : '')
+baseClassName
++ (className ? ' ' + className : '')
 ```
 
 Now lets create another CSS class that applies a background color of `red`.
@@ -138,7 +139,9 @@ const App = ({ className, hasError }: { className?, hasError?}) => {
 It these uses this `hasError` property to create a string for className concatenation :
 
 ```js
-baseClassName + (className ? ' ' + className : '') + (hasError ? ' ' + errorClassName : '')
+baseClassName
++ (className ? ' ' + className : '')
++ (hasError ? ' ' + errorClassName : '')
 ```
 
 You can see this quickly becoming needless verbose. Fortunately TypeStyle provides a handly `classes` function for composing CSS classes
@@ -156,7 +159,11 @@ This function filters out any non string values and combines the classNames.
 
 ```js
 // baseClassName + (className ? ' ' + className : '') + (hasError ? ' ' + errorClassName : '')
-classes(baseClassName, className, hasError && errorClassName)
+classes(
+  baseClassName,
+  className,
+  hasError && errorClassName
+)
 ```
 
 In short `classes` is for style customization using CSS classes and can be used for theming and composing CSS classes. (show arrows against the items).
