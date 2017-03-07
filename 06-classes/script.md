@@ -2,7 +2,7 @@
 
 > We will demonstrate composing classes using the utility classes function. `classes` is also what we recommend for theming.
 
-We have simple React Application that renders a div with a generated className to a root div in our `index.html`
+We have simple React Application that renders a div with a generated className to the dom.
 
 (change `Hello World`)
 ```js
@@ -16,7 +16,7 @@ const baseClassName = style(
 
 ReactDOM.render(
   <div className={baseClassName}>
-  
+
   </div>,
   document.getElementById('root')
 );
@@ -27,7 +27,7 @@ ReactDOM.render(
 
 ```js
 import * as React from 'react';
-import * as ReactDOM from 'react-dom'; 
+import * as ReactDOM from 'react-dom';
 import { style } from 'typestyle';
 
 const baseClassName = style(
@@ -55,7 +55,7 @@ ReactDOM.render(
 
 ```js
 import * as React from 'react';
-import * as ReactDOM from 'react-dom'; 
+import * as ReactDOM from 'react-dom';
 import { style } from 'typestyle';
 
 const baseClassName = style(
@@ -87,7 +87,7 @@ const App = ({ className }) => {
 }
 ```
 
-* And then we can append it to our base className 
+* And then we can append it to our base className
 
 ```js
 const App = ({ className }) => {
@@ -98,7 +98,7 @@ const App = ({ className }) => {
   );
 }
 ```
-This works fine if the className is always provided. However if you want to make this className property optional 
+This works fine if the className is always provided. However if you want to make this className property optional
 
 ```js
 const App = ({ className }: { className?}) => {
@@ -109,7 +109,7 @@ const App = ({ className }: { className?}) => {
   );
 }
 ```
-and we don't pass in any customization class: 
+and we don't pass in any customization class:
 
 ```js
 <App />
@@ -130,7 +130,7 @@ const errorClassName = style({
 })
 ```
 
-Our `App` accepts a hasError property 
+Our `App` accepts a hasError property
 
 ```js
 const App = ({ className, hasError }: { className?, hasError?}) => {
@@ -147,8 +147,8 @@ You can see this quickly becoming needless verbose. Fortunately TypeStyle provid
 import { style, classes } from 'typestyle';
 ```
 
-This function filters out any non string values and combines the classNames. 
-* So we can replace this hacky concatenation with 
+This function filters out any non string values and combines the classNames.
+* So we can replace this hacky concatenation with
 * a simple call to classes
 * baseClassName which should always be applied
 * className which will automatically be ignored if it is undefined
