@@ -1,6 +1,6 @@
 # Compose CSS classes using TypeStyle
 
-> We will demonstrate composing classes using the utility classes function. `classes` is also what we recommend for theming.
+> We will demonstrate composing classes using the utility classes function. `classes` is also what we recommend for theming. Using pure CSS classes means that the component consumers are free to customize the component using any technology (not just TypeStyle). `classes` is also what is recommended for conditionally applied TypeStyle CSS class names. 
 
 We have simple React Application that renders a div with a generated className to the dom.
 
@@ -47,11 +47,13 @@ ReactDOM.render(
 );
 ```
 
-* At the heart of TypeStyle is the `style` function which very simply takes a style object (cursor around the style object) and returns a className (cursor around className).
+* At the heart of TypeStyle is the `style` function which very simply takes a style object (cursor around the style object) and returns a generated CSS className (cursor around className).
 
 * Because it generates just classNames it is very easy to integrate theming into our component by simply taking a `className` property. (add a class name prop)
 
-* The users of our component can use any framework they want to author the CSS class. They can even generate a class on the fly using TypeStyle.
+* The users of our component can use any framework they want to author the CSS class.
+
+* They can even use TypeStyle's style function to generate a CSS class on the fly, e.g. we just generated a css class that bumps up the fontSize.
 
 ```js
 import * as React from 'react';
@@ -98,7 +100,9 @@ const App = ({ className }) => {
   );
 }
 ```
-This works fine if the className is always provided. However if you want to make this className property optional
+* And when we run the application you can see that this bumped up font size customization gets applied.
+
+This app component works fine if the className property is always provided. However if you want to make this className property optional
 
 ```js
 const App = ({ className }: { className?: string }) => {
@@ -109,21 +113,22 @@ const App = ({ className }: { className?: string }) => {
   );
 }
 ```
-and we don't pass in any customization class:
+and someone uses our component without any customization
 
 ```js
 <App />
 ```
-You can see that `className` will be undefined and if you look at the dom (show the dom), we get this ugly and potentional style breaking class applied to the element.
 
-* You can make this better with code that checks if a className was passed in.
+and when we run the app the `className` prop will be undefined within the app component. if you look at the dom (show the dom), we get this ugly and potentional style breaking className called `undefined`.
+
+* Instead of doing this plain string concatenation, we can make this better with code that checks if a className was passed in.
 
 ```js
 baseClassName
 + (className ? ' ' + className : '')
 ```
 
-Now lets create a CSS class that applies a background color of `red`.
+Now lets create a CSS class to denote some error condition in the UI. This class simply applies a background color of `red`.
 
 ```js
 const errorClassName = style(
@@ -136,7 +141,7 @@ Our `App` accepts a hasError property
 ```js
 const App = ({ className, hasError }: { className?, hasError?}) => {
 ```
-It these uses this `hasError` property to create a string for className concatenation :
+It then uses this `hasError` property to create a string for className concatenation similar to what we did for the previous optional class:
 
 ```js
 baseClassName
@@ -144,13 +149,13 @@ baseClassName
 + (hasError ? ' ' + errorClassName : '')
 ```
 
-You can see this quickly becoming needless verbose. Fortunately TypeStyle provides a handly `classes` function for composing CSS classes
+You can see this whole string concatenation for different CSS classnames which may or may not be present is becoming needless verbose. Fortunately TypeStyle provides a handly `classes` function for composing CSS classes
 
 ```js
 import { style, classes } from 'typestyle';
 ```
 
-This function filters out any non string values and combines the classNames.
+This function filters out any non string values and falsy values and combines the classNames with spaces inbetween.
 
 * So we can replace this hacky concatenation with
 * a simple call to classes
@@ -167,4 +172,4 @@ classes(
 )
 ```
 
-In short `classes` is for style customization using CSS classes and can be used for theming and composing CSS classes. (show arrows against the items).
+In short `classes` is for concatenating CSS classes and can be used for theming and composing condition driven CSS classes.
