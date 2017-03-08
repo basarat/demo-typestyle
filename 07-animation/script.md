@@ -1,21 +1,21 @@
-# Add CSS keyframe animations using TypeStyle
+# Add CSS animations using TypeStyle
 > We cover CSS keyframes and how to create them using TypeStyle. We then show how to use keyframes to create an animation.
 
-We have simple React Application that renders a div with a generated className to a root div in our `index.html`
+We have simple React Application with the root div being styled using TypeStyle.
 
-(change `Hello World`)
+(change `{ fontSize: '20px' },`)
 ```js
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { style } from 'typestyle';
 
 const className = style(
-  { fontSize: '20px' },
+
 );
 
 ReactDOM.render(
   <div className={className}>
-
+    Hello world
   </div>,
   document.getElementById('root')
 );
@@ -27,7 +27,7 @@ ReactDOM.render(
 import { style, keyframes } from 'typestyle';
 ```
 
-Here we generate an animation that transitions the color from black to blue. 
+Here we generate an animation that transitions the color from black to blue.
 
 ```js
 const colorAnimationName = keyframes({
@@ -46,8 +46,8 @@ const className = style(
   },
 );
 ```
-CSS keyframe animations are controlled using additional properties in the `animation` namespace. E.g. 
-* we can control the animation duration using the `animationDuration` CSS property. 
+CSS keyframe animations are controlled using additional properties in the `animation` namespace. E.g.
+* we can control the animation duration using the `animationDuration` CSS property.
 
 ```js
 const className = style(
@@ -58,13 +58,13 @@ const className = style(
   },
 );
 ```
-Now the animation plays for `1s`. 
+Now the animation plays for `1s`.
 
 * We can make the animation play in a continuous loop using the `animationIterationCount` CSS property
 
 ```js
 const className = style(
-  { 
+  {
     fontSize: '20px',
     animationName: colorAnimationName,
     animationDuration: '1s',
