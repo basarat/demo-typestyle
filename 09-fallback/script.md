@@ -1,18 +1,17 @@
-# Ensure greater browser support with vendor prefixes using TypeStyle
+# Greater CSS browser support with fallback values and vendor prefixes using TypeStyle
+> You can increase the browser support of your CSS using fallback values and vendor prefixes. This lesson covers using vendor prefixes and fallback values (single prop multiple values) with TypeStyle.
 
-> This lesson covers using vendor prefixes and fallback values (single prop multiple values) with TypeStyle.
+We have simple div that we can set the font size and backgroundColor for using TypeStyle.
 
-We have simple React Application that renders a div with a generated className to a root div in our `index.html`
-
-(change `Hello World `)
+(add fontSize and backgroundColor)
 ```js
 import * as React from 'react';
-import * as ReactDOM from 'react-dom'; 
+import * as ReactDOM from 'react-dom';
 import { style } from 'typestyle';
 
 const className = style(
   {
-    fontSize: '20px',
+    fontSize: '30px',
     backgroundColor: 'rgba(200, 54, 54, 0.5)',
   }
 );
@@ -24,41 +23,42 @@ ReactDOM.render(
   document.getElementById('root')
 );
 ```
-Assume that we want to provide a graceful fallback for browers that do not support the rgba css function. In raw CSS you would write it like the following
+* In this example you might want to provide a graceful fallback for browsers that do not support the rgba css function. (highlight rgba)
+
+* In raw CSS you would write it with fallback follwed by gracefull upgrade
 
 ```js
 `
-background-color: 'rgb(200, 54, 54, 0.5)'; // Fallback 
+background-color: 'rgb(200, 54, 54, 0.5)'; // Fallback
 background-color: 'rgba(200, 54, 54, 0.5)'; // Graceful upgrade
 `
 ```
-
-Notice that with CSS in JS you can only have one value against a key. Since we are using TypeScript it will warn us if we duplicate a key by mistake.
+With CSS in JS you can only have one value against a key. Since we are using TypeScript it will even warn you if you duplicate a key by mistake.
 
 ```js
 const className = style(
-  { 
+  {
     backgroundColor: 'rgba(200, 54, 54, 0.5)',
     backgroundColor: 'rgba(200, 54, 54, 0.5)', // Error
   },
 );
 ```
-To support graceful fallbacks, TypeStyle allows you to provide an array instead of a single value. 
+To support graceful fallbacks, TypeStyle allows you to provide an array instead of a single value.
 
 ```js
 const className = style(
-  { 
+  {
     backgroundColor: [
       'rgba(200, 54, 54, 0.5)',
     ]
   },
 );
 ```
-And now we can provide a graceful fallback 
+And now we can provide a graceful fallback
 
 ```js
 const className = style(
-  { 
+  {
     backgroundColor: [
       'rgb(200, 54, 54)',
       'rgba(200, 54, 54, 0.5)',
@@ -67,11 +67,11 @@ const className = style(
 );
 ```
 
-Another kind of fallback needed in CSS is vendor prefixing. TypeStyle allows you to provide objects with a `-` in them (show `-` with autocomplete). Any dash is not case changed by TypeStyle. e.g. 
+Another kind of fallback needed in CSS is vendor prefixing. TypeStyle allows you to provide objects with a `-` in them (show `-` with autocomplete). Any dash is not case changed by TypeStyle. e.g.
 
 ```js
 const className = style(
-  { 
+  {
     '-webkit-overflow-scrolling': 'touch',
     backgroundColor: [
       'rgb(200, 54, 54)',
@@ -95,7 +95,7 @@ And this as a mixin whenever I need scrolling support,
 ```js
 const className = style(
   scroll,
-  { 
+  {
     backgroundColor: [
       'rgb(200, 54, 54)',
       'rgba(200, 54, 54, 0.5)',
