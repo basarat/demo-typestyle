@@ -33,7 +33,8 @@ background-color: 'rgb(200, 54, 54, 0.5)'; // Fallback
 background-color: 'rgba(200, 54, 54, 0.5)'; // Graceful upgrade
 `
 ```
-With CSS in JS you can only have one value against a key. Since we are using TypeScript it will even warn you if you duplicate a key by mistake.
+* With CSS in JS you can only have one value against a key.
+* Since we are using TypeScript it will even warn you if you duplicate a key by mistake.
 
 ```js
 const className = style(
@@ -43,7 +44,7 @@ const className = style(
   },
 );
 ```
-To support graceful fallbacks, TypeStyle allows you to provide an array instead of a single value.
+* To support graceful fallbacks, TypeStyle allows you to provide an array instead of a single value.
 
 ```js
 const className = style(
@@ -54,7 +55,8 @@ const className = style(
   },
 );
 ```
-And now we can provide a graceful fallback
+
+* And now we can provide a graceful fallback
 
 ```js
 const className = style(
@@ -67,7 +69,10 @@ const className = style(
 );
 ```
 
-Another kind of fallback needed in CSS is vendor prefixing. TypeStyle allows you to provide objects with a `-` in them (show `-` with autocomplete). Any dash is not case changed by TypeStyle. e.g.
+Another kind of fallback needed in CSS is vendor prefixing.
+
+* TypeStyle allows you to provide objects with a `-` in them (show `-` with autocomplete). Any dash is not case changed by TypeStyle.
+* e.g. we can add smooth touch scrolling support for old iOS devices.
 
 ```js
 const className = style(
@@ -81,7 +86,7 @@ const className = style(
 );
 ```
 
-You are encouraged to move stuff with vendor prefixes into semantic names e.g. I can move the scroll handling into a variable
+* You are encouraged to move stuff with vendor prefixes into semantic names e.g. I can move the scroll handling into a variable
 
 ```js
 const scroll = {
@@ -90,7 +95,7 @@ const scroll = {
 }
 ```
 
-And this as a mixin whenever I need scrolling support,
+* And then use this object as a mixin whenever I need scrolling support,
 
 ```js
 const className = style(
