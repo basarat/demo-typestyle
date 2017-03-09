@@ -28,7 +28,8 @@ ReactDOM.render(
 import { style, cssRaw } from 'typestyle';
 ```
 
-It simply takes any raw CSS you want typestyle to manage as a simple string. e.g. here we have some raw css that adds a red color to items with className `red`
+* It simply takes a simply string containing any raw CSS you want typestyle to manage.
+* e.g. here we have some raw css that adds a red color to items with className `red`
 
 ```js
 cssRaw(`
@@ -38,7 +39,10 @@ cssRaw(`
 `);
 ```
 
-We can show that this css is loaded by applying this className to the div that we are rendering.
+* Note that raw CSS is pure CSS by its very nature global.
+* In our example the class name `red` is global css class.
+
+* We can show that this css is being loaded by simply applying this className to the div that we are rendering.
 
 ```js
 ReactDOM.render(
@@ -48,6 +52,8 @@ ReactDOM.render(
   document.getElementById('root')
 );
 ```
+* And when we run the application you can see the div turns red.
+
 
 You can call cssRaw multiple times and the new CSS is simply appended to the buffer of the CSS that is managed by TypeStyle.
 
@@ -62,9 +68,7 @@ cssRaw(`
 <div className={className + ' red bold'}>
 ```
 
-Using cssRaw is highly discouraged as it suffers from global namespace pollution e.g. here the `red` and `bold` CSS classnames are global and can interfer with any other library stylesheet you might have in your project.
-
-That said it is great for quickly *migrating existing CSS*, writing proof of concepts and even bringing in a global CSS reset e.g. https://necolas.github.io/normalize.css/
+`cssRaw` is great for quickly *migrating existing CSS*, writing proof of concepts and even bringing in a global CSS reset e.g. https://necolas.github.io/normalize.css/
 
 ```js
 cssRaw(`
