@@ -1,21 +1,22 @@
-# Add raw CSS as an escape hatch using TypeStyle
+# Load raw CSS in TypeStyle
 > TypeStyle tries to be an all in one CSS in JS management solution so you can always fall back to raw CSS if you ever need to migrate old code quickly. This lesson will demonstrate how to use it along with the real world use case of e.g. using `normalize.css`.
 
-We have simple React Application that renders a div with a generated className to a root div in our `index.html`
+Here we have a simple div being styled using TypeStyle.
 
-(change `Hello World`)
+
+(  `{ fontSize: '30px' }, `)
 ```js
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { style } from 'typestyle';
 
 const className = style(
-  { fontSize: '20px' },
+
 );
 
 ReactDOM.render(
   <div className={className}>
-
+    Hello world
   </div>,
   document.getElementById('root')
 );
@@ -48,7 +49,7 @@ ReactDOM.render(
 );
 ```
 
-You can call cssRaw multiple times and the new CSS is simply appended to the buffer of the CSS that is managed by TypeStyle. 
+You can call cssRaw multiple times and the new CSS is simply appended to the buffer of the CSS that is managed by TypeStyle.
 
 ```js
 cssRaw(`
@@ -63,7 +64,7 @@ cssRaw(`
 
 Using cssRaw is highly discouraged as it suffers from global namespace pollution e.g. here the `red` and `bold` CSS classnames are global and can interfer with any other library stylesheet you might have in your project.
 
-That said it is great for quickly *migrating existing CSS*, writing proof of concepts and even bringing in a global CSS reset e.g. https://necolas.github.io/normalize.css/ 
+That said it is great for quickly *migrating existing CSS*, writing proof of concepts and even bringing in a global CSS reset e.g. https://necolas.github.io/normalize.css/
 
 ```js
 cssRaw(`
