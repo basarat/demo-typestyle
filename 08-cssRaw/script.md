@@ -1,5 +1,5 @@
 # Load raw CSS in TypeStyle
-> TypeStyle tries to be an all in one CSS in JS management solution so you can always fall back to raw CSS if you ever need to migrate old code quickly. This lesson will demonstrate how to use it along with the real world use case of e.g. using `normalize.css`.
+> TypeStyle tries to be an all in one CSS in JS management solution so you can always fall back to raw CSS if you ever need to migrate old code quickly. This lesson will demonstrate how to use the `cssRaw` function along with the real world use case of CSS resets e.g. `normalize.css`.
 
 Here we have a simple div being styled using TypeStyle.
 
