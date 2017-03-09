@@ -1,5 +1,5 @@
-# Add CSS animations using TypeStyle
-> We cover CSS keyframes and how to create them using TypeStyle. We then show how to use keyframes to create an animation.
+# Create CSS animations using TypeStyle
+> We cover CSS keyframes and how to create them using TypeStyle. We then show how to use the keyframes function to create an animation. We also discuss a few other CSS properties in the `animation` namespace.
 
 We have simple React Application with the root div being styled using TypeStyle.
 
