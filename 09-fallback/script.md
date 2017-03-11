@@ -1,7 +1,7 @@
 # Greater CSS browser support with fallback values and vendor prefixes using TypeStyle
 > You can increase the browser support of your CSS using fallback values and vendor prefixes. This lesson covers using vendor prefixes and fallback values (single prop multiple values) with TypeStyle.
 
-We have simple div, that we can set the font size and backgroundColor for using TypeStyle.
+We have simple div, that is being styled using TypeStyle e.g. we can bump up the font size and set the backgroundColor
 
 (add fontSize and backgroundColor)
 ```js
@@ -25,12 +25,12 @@ ReactDOM.render(
 ```
 * In this example you might want to provide a graceful fallback for browsers that do not support the rgba css function. (highlight rgba)
 
-* In raw CSS you would write it with fallback follwed by gracefull upgrade
+* In raw CSS you would write it with fallback followed by a graceful upgrade
 
 ```js
 `
-background-color: 'rgb(200, 54, 54, 0.5)'; // Fallback
-background-color: 'rgba(200, 54, 54, 0.5)'; // Graceful upgrade
+background-color: rgb(200, 54, 54); // Fallback
+background-color: rgba(200, 54, 54, 0.5); // Upgrade
 `
 ```
 * With CSS in JS you can only have one value against a key.
@@ -78,6 +78,7 @@ Another kind of fallback needed in CSS is vendor prefixing.
 const className = style(
   {
     '-webkit-overflow-scrolling': 'touch',
+    fontSize: '30px',
     backgroundColor: [
       'rgb(200, 54, 54)',
       'rgba(200, 54, 54, 0.5)',
@@ -86,7 +87,7 @@ const className = style(
 );
 ```
 
-* You are encouraged to move stuff with vendor prefixes into semantic names e.g. I can move the scroll handling into a variable
+* You are encouraged to move stuff with vendor prefixes into semantic names e.g. I can move the scroll handling into a variable. I will also go ahead and specify that the element should show a scrollbar automatically if required.
 
 ```js
 const scroll = {
