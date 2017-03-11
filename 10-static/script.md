@@ -27,7 +27,7 @@ const App = () => {
 
 ```js
 import * as ReactDOMServer from 'react-dom/server';
-const html = ReactDOMServer.renderToString(<App />);
+const html = ReactDOMServer.renderToStaticMarkup(<App />);
 console.log({ html });
 ```
 
