@@ -1,7 +1,7 @@
 # Greater CSS browser support with fallback values and vendor prefixes using TypeStyle
 > You can increase the browser support of your CSS using fallback values and vendor prefixes. This lesson covers using vendor prefixes and fallback values (single prop multiple values) with TypeStyle.
 
-We have simple div that we can set the font size and backgroundColor for using TypeStyle.
+We have simple div, that we can set the font size and backgroundColor for using TypeStyle.
 
 (add fontSize and backgroundColor)
 ```js
