@@ -23,9 +23,9 @@ ReactDOM.render(
   document.getElementById('root')
 );
 ```
-* In this example you might want to provide a graceful fallback for browsers that do not support the rgba css function. (highlight rgba)
+* With CSS you sometimes need to provide fallback values for old browsers. As an example you might want to provide a graceful fallback for browsers that do not support the rgba css function. (highlight rgba)
 
-* In raw CSS you would write it with fallback followed by a graceful upgrade
+* In raw CSS you would simply duplicate the CSS key value pair (in our case the background-color key) and write the fallback value followed by the graceful upgrade value.
 
 ```js
 `
@@ -33,7 +33,7 @@ background-color: rgb(200, 54, 54); // Fallback
 background-color: rgba(200, 54, 54, 0.5); // Upgrade
 `
 ```
-* With CSS in JS you can only have one value against a key.
+* With CSS in JS, because of the way JavaScript works, you can have a given key e.g. backgroundColor, only once.
 * Since we are using TypeScript it will even warn you if you duplicate a key by mistake.
 
 ```js
@@ -69,10 +69,12 @@ const className = style(
 );
 ```
 
+This gives us the same behaviour as raw CSS because TypeStyle will essentially generates the same stylesheet.
+
 Another kind of fallback needed in CSS is vendor prefixing.
 
-* TypeStyle allows you to provide objects with a `-` in them (show `-` with autocomplete). Any dash is not case changed by TypeStyle.
-* e.g. we can add smooth touch scrolling support for old iOS devices.
+* For this purpose, TypeStyle allows you to provide keys with a `-` in them (show `-` with autocomplete). All dashes are preserved by TypeStyle when generating the CSS.
+* e.g. we can add smooth touch scrolling support for old iOS devices using the `webkit-overflow-scrolling` property and setting it to touch.
 
 ```js
 const className = style(
@@ -96,7 +98,7 @@ const scroll = {
 }
 ```
 
-* And then use this object as a mixin whenever I need scrolling support,
+* And now I can use this scroll object as a mixin whenever I need smooth touch scrolling support,
 
 ```js
 const className = style(
