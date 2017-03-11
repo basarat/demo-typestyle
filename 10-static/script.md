@@ -1,5 +1,5 @@
 # Generate static html files using TypeStyle
-> You can easily use TypeStyle to build static html + css files. You can use the same pattern to generate email and pdf template files. Since TypeStyle supports cssRaw all your css can be easily inlined into a single file.
+> You can easily use TypeStyle to build static html files with encapsulated CSS. You can use this pattern to generate email and pdf template files. Since TypeStyle supports cssRaw all your css can be easily inlined into a single file making it easy to work with template rendering engines.
 
 Here I have a simple file containing an app component that is styled using TypeStyle.
 
@@ -31,20 +31,20 @@ const html = ReactDOMServer.renderToString(<App />);
 console.log({ html });
 ```
 
-Similar to how you can get all the HTML for a react component, you can get all the CSS managed by TypeStyle using the `getStyles()` function. We can bring in this function from `typestyle` 
+Similar to how you can get all the HTML for a react component, you can get all the CSS managed by TypeStyle using the `getStyles()` function. We can bring in this function from `typestyle`
 
 ```js
 import { style, getStyles } from 'typestyle';
 ```
-It simply returns all the CSS as a string 
+It simply returns all the CSS as a string
 
 ```js
-import * as ReactDOM from 'react-dom/server'; 
+import * as ReactDOM from 'react-dom/server';
 const html = ReactDOMServer.renderToString(<App/>);
 const css = getStyles();
 console.log({html, css});
 ```
-We can use this pattern to create static html files that are fully self contained with all the `html` and `css` we can do that quite easily. 
+We can use this pattern to create static html files that are fully self contained with all the `html` and `css` we can do that quite easily.
 
 * First we write a `renderPage` function that takes `html` and css`.
 * It uses string templates populate our template page with the provided html and css
@@ -68,7 +68,7 @@ export const renderPage = ({ html, css }) => `
 const renderedPage = renderPage({ html, css });
 ```
 
-Now if we wanted we can write this rendered page to a file on disk e.g. 
+Now if we wanted we can write this rendered page to a file on disk e.g.
 
 ```js
 import * as fs from 'fs';
