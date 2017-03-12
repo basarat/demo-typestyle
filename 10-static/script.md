@@ -1,4 +1,4 @@
-# Generate static html files using TypeStyle
+# Generate static css + html files using TypeStyle
 > You can easily use TypeStyle to build static html files with encapsulated CSS. You can use this pattern to generate email and pdf template files. Since TypeStyle supports cssRaw all your css can be easily inlined into a single file making it easy to work with template rendering engines.
 
 Let's go ahead and create a CSS classname using TypeStyle's style function setting up a color and a fontSize.
