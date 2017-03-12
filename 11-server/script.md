@@ -52,21 +52,37 @@ app.get('/', function (req, res) {
   const css = getStyles();
   res.send(renderPage({ html,css }));
 });
-
 app.use(express.static('public'));
-
 app.listen(3000, function () {
   console.log('App listening on port 3000!')
 });
 ```
+Some notes ^ :
+* We will go ahead and create a utility renderPage function which will take some html and css and return a rendered index.html content as a string.
+* Our main html page contains html with a head tag containing a style tag with id  ... which contains all our server rendered css.
+* Next it has a body tag with a root div (of id root) which contains all our server rendered html
+* Finally our index page loads our client side script `bundle.js` which will redydrate the style-target and root div.
 
-Our `bundle.js` is being generated using webpack and points to `app/main.tsx` file (show wepback.config.js).
-* Lets go ahead and create this main.tsx file
-* We will bring and react and react dom for the html.
-* From TypeStyle we will bring in `setStylesTarget` for the css.
+* We will create our http server using express.
+* We will add a root handler to return our index page.
+  * We will pre-render the html using ReactDOMServer.renderToString passing in our app component.
+  * We will get the server collected styles using typestyle's getStyles function.
+  * And we will send the response by rendering into the page, this html and css.
+
+* To serve our client `bundle.js` file we will simply serve up the public folder.
+
+* Finally our application will listen on port 3000 and once it starts it will log out the message "App listening on port 3000".
+
+* The `bundle.js` file in our index page is being generated using webpack, which is configured using `webpack.config.js`. (show wepback.config.js).
+  * The output section of our config is writing `bundle.js` to the public folder.
+  * Our application entry in the config points to `src/app/main.tsx` file
+
+* Lets go ahead and create this main.tsx file which is our client side entry point.
+* We will bring and react and react dom for hydrating the html.
+* We will also bring in TypeStyle for hydrating the css.
 * Next we bring in our root app component.
 * We will hydrate the html using React DOM at the root div
-* We will hydrate the css using `setStylesTarget` at the `styles-target` tag.
+* To hydrate the CSS we will set typestyle styles target to the style tag in the document head.
 
 ```js
 import * as React from 'react';
@@ -78,15 +94,19 @@ ReactDOM.render(<App />, document.getElementById('root'));
 typestyle.setStylesTarget(document.getElementById('styles-target'));
 ```
 
-* Within our package.json we have a start target that runs webpack to generate our bundle.js and then starts the server.
+* To demonstrate this project, we have `start` target in our  package.json, that runs webpack to generate our bundle.js and then starts the server by running our `server.tsx`.
 
-* Now we go ahead and run `npm start` which will run webpack generating our `public/bundle.js` file and then start the http server at port 3000.
+* So we jump back to the terminal and run `npm start`
+  * This kicks off webpack which will generate our `public/bundle.js` file
+  * And then the express server starts, listening for requests on port 3000.
 
-* If we open it in our browser you can see that it works as expect.
+* If we open up our browser on localhost:3000, you can see that the application works as expected.
 
-* If we look at the network tab the HTML and CSS was pre rendered on the server and has now been rehydrated on the client.
+* If we look at the network tab in our developer tools, the HTML and CSS was pre rendered on the server and sent as a part of the original response.
+* It was then redyrated by bundle.js on the client.
+* And now the dom contains the rehydrated style and the root div.
 
-* As a quick recap.
-  * We create our styles and react components,
+* To recap.
+  * We created our styles and react components,
   * render them on the server and send them down as a part of the response.
-  * Then rehydrate them on the client.
+  * Then finally rehydrated them on the client.
