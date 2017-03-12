@@ -22,7 +22,9 @@ export const App = () => {
 }
 ```
 
-Now let create a simple server. First I will go ahead and install express `npm install express @types/express -S`. Next we will create a `server.tsx` file.
+* Now let create a simple server to pre-render this component and its CSS and return it as an http response.
+
+* First I will go ahead and install express `npm install express @types/express -S`. Next we will create a `server.tsx` file.
 
 ```js
 import * as React from 'react';
@@ -69,11 +71,11 @@ Our `bundle.js` is being generated using webpack and points to `app/main.tsx` fi
 ```js
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import { setStylesTarget } from 'typestyle';
+import * as typestyle from 'typestyle';
 import { App } from './app';
 
 ReactDOM.render(<App />, document.getElementById('root'));
-setStylesTarget(document.getElementById('styles-target'));
+typestyle.setStylesTarget(document.getElementById('styles-target'));
 ```
 
 * Within our package.json we have a start target that runs webpack to generate our bundle.js and then starts the server.
@@ -83,3 +85,8 @@ setStylesTarget(document.getElementById('styles-target'));
 * If we open it in our browser you can see that it works as expect.
 
 * If we look at the network tab the HTML and CSS was pre rendered on the server and has now been rehydrated on the client.
+
+* As a quick recap.
+  * We create our styles and react components,
+  * render them on the server and send them down as a part of the response.
+  * Then rehydrate them on the client.

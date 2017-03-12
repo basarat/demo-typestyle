@@ -17,15 +17,12 @@ export const renderPage = ({ html, css }) => `
 `;
 
 const app = express();
-
-app.get('/', function (req, res) {
-  const html = ReactDOMServer.renderToString(<App/>);
+app.get('/', (req, res) => {
+  const html = ReactDOMServer.renderToString(<App />);
   const css = getStyles();
-  res.send(renderPage({ html,css }));
+  res.send(renderPage({ html, css }));
 });
-
 app.use(express.static('public'));
-
-app.listen(3000, function () {
-  console.log('App listening on port 3000!')
+app.listen(3000, () => {
+  console.log('App listening on port 3000!');
 });

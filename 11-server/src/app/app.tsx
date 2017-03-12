@@ -9,7 +9,7 @@ const className = style({
 export const App = () => {
   return (
     <div className={className}>
-      Hello World
+      Hello world
     </div>
-  );
+  )
 }
