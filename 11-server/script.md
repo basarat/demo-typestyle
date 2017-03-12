@@ -1,5 +1,7 @@
 # Render HTML/CSS server-side using TypeStyle
-> Here we show how to return CSS + HTML as a server response. And then rehydrate it on the client. Server side rendering is great for SEO and TypeStyle supports it out of the box.
+> Here we show how to return CSS + HTML as a server response. And then rehydrate it on the client. Server side rendering is great for SEO and first load performance.
+
+> TypeStyle supports server side rendering CSS out of the box.
 
 Here I have a simple file containing an app component that is styled using TypeStyle.
 
