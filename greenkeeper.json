@@ -1,0 +1,19 @@
+{
+  "groups": {
+    "default": {
+      "packages": [
+        "01-intro/package.json",
+        "02-mixins/package.json",
+        "03-media/package.json",
+        "04-state/package.json",
+        "05-content/package.json",
+        "06-classes/package.json",
+        "07-animation/package.json",
+        "08-cssRaw/package.json",
+        "09-fallback/package.json",
+        "10-static/package.json",
+        "11-server/package.json"
+      ]
+    }
+  }
+}
