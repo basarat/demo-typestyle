@@ -22,6 +22,6 @@
     "ts-node": "^2.1.0",
     "typescript": "2.2.1",
     "typestyle": "1.2.0",
-    "webpack": "2.2.1"
+    "webpack": "5.94.0"
   }
 }
